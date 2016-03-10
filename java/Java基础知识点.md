@@ -15,7 +15,7 @@
 * AppClassLoader。加载 classpath 目录下的 class，以及用户自定义的 class
 * Custom ClassLoader。属于应用程序根据自身需要自定义的ClassLoader
 
-![类加载](https://raw.githubusercontent.com/onlylemi/notes/images/master/classloader.gif)
+![类加载](https://raw.githubusercontent.com/onlylemi/notes/master/images/classloader.gif)
 
 ### 加载方式
 
