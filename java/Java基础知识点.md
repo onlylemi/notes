@@ -15,7 +15,7 @@
 * AppClassLoader。加载 classpath 目录下的 class，以及用户自定义的 class
 * Custom ClassLoader。属于应用程序根据自身需要自定义的ClassLoader
 
-![类加载](https://raw.githubusercontent.com/onlylemi/notes/images/classloader.gif)
+![类加载](https://raw.githubusercontent.com/onlylemi/notes/images/master/classloader.gif)
 
 ### 加载方式
 
@@ -97,7 +97,7 @@ Runtime.getRuntime().gc()
 
 ## I/O
 
-![I/O类图](https://raw.githubusercontent.com/onlylemi/notes/images/java_io.jpg)
+![I/O类图](https://raw.githubusercontent.com/onlylemi/notes/master/images/java_io.jpg)
 
 * Piped... 管道流。主要可以进行两个线程之间的通信
 

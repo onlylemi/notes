@@ -1,6 +1,6 @@
 # 集合
 
-![集合类图](https://raw.githubusercontent.com/onlylemi/notes/images/collection.png)
+![集合类图](https://raw.githubusercontent.com/onlylemi/notes/master/images/collection.png)
 
 ### ArrayList 与 Vector 区别
 
