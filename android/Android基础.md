@@ -293,3 +293,35 @@ preferences.getString("name", "");
 
 不同的应用程序之间实现数据共享。
 
+## Asset 与 raw 区别
+
+### 相同点：
+
+两者目录下的文件在打包后会原封不动的保存在apk包中，不会被编译成二进制。
+
+### 不同点：
+
+* raw中的文件会被映射到R.java文件中，访问的时候直接使用资源ID即R.id.filename；assets文件夹下的文件不会被映射到R.java中，访问的时候需要AssetManager类。
+* raw不可以有目录结构，而assets则可以有目录结构，也就是assets目录下可以再建立文件夹
+
+### 读取文件资源：
+
+* 读取raw下的文件资源，通过以下方式获取输入流来进行写操作
+```java
+InputStream is = getResources().openRawResource(R.id.filename);
+```
+2.读取assets下的文件资源，通过以下方式获取输入流来进行写操作
+```java
+AssetManager am = null;  
+am = getAssets();  
+InputStream is = am.open("filename");  
+```
+
+## Postvalidata 与 Invalidate 有什么区别？
+
+* Invalidate 在UI线程自身中使用。刷新时采用Handler
+* Postvalidata 而在非UI线程中使用
+
+## JVM 和 Dalvik虚拟机的区别？
+
+
