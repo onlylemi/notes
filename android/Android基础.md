@@ -16,13 +16,15 @@
 
 参考：http://www.cnblogs.com/xiaoQLu/p/3324503.html
 
-## Service
+### 内存不足时，怎么保持Activity的一些状态，在哪个方法里面做具体操作？
+
+onPause()方法
 
 ## ListView
 
 ### ListView 优化
 
-* 重用view
+* 重用 view，不用每次都加载
 * ViewHolder，对空间实例进行缓存
 
 ### 怎么实现ListView多种布局？
@@ -69,8 +71,8 @@ public int getItemViewType(int position) {
 
 ## OOM（内存不足、泄漏、溢出）
 
-* 加载的对象过大
-* 无用的对象仍然存在引用
+* 应用中需要加载大对象，例如Bitmap
+* 持有无用的对象使其无法被gc
 
 ### 解决方法
 
@@ -104,38 +106,120 @@ public int getItemViewType(int position) {
 
 ![Fragment生命周期](http://img.my.csdn.net/uploads/201301/22/1358840998_2990.png)
 
+```
+03-12 09:27:40.781 11786-11786/com.onlylemi.androidtest I/FragmentActivity: onCreate
+03-12 09:27:40.783 11786-11786/com.onlylemi.androidtest I/TestFragment: onAttach
+03-12 09:27:40.783 11786-11786/com.onlylemi.androidtest I/TestFragment: onCreate
+03-12 09:27:40.783 11786-11786/com.onlylemi.androidtest I/TestFragment: onCreateView
+03-12 09:27:40.786 11786-11786/com.onlylemi.androidtest I/TestFragment: onActivityCreated
+03-12 09:27:40.786 11786-11786/com.onlylemi.androidtest I/TestFragment: onStart
+03-12 09:27:40.786 11786-11786/com.onlylemi.androidtest I/FragmentActivity: onStart
+03-12 09:27:40.788 11786-11786/com.onlylemi.androidtest I/FragmentActivity: onResume
+03-12 09:27:40.788 11786-11786/com.onlylemi.androidtest I/TestFragment: onResume
+03-12 09:28:11.294 11786-11786/com.onlylemi.androidtest I/TestFragment: onPause
+03-12 09:28:11.294 11786-11786/com.onlylemi.androidtest I/FragmentActivity: onPause
+03-12 09:28:11.870 11786-11786/com.onlylemi.androidtest I/TestFragment: onStop
+03-12 09:28:11.870 11786-11786/com.onlylemi.androidtest I/FragmentActivity: onStop
+03-12 09:28:26.128 11786-11786/com.onlylemi.androidtest I/FragmentActivity: onRestart
+03-12 09:28:26.128 11786-11786/com.onlylemi.androidtest I/TestFragment: onStart
+03-12 09:28:26.128 11786-11786/com.onlylemi.androidtest I/FragmentActivity: onStart
+03-12 09:28:26.129 11786-11786/com.onlylemi.androidtest I/FragmentActivity: onResume
+03-12 09:28:26.129 11786-11786/com.onlylemi.androidtest I/TestFragment: onResume
+03-12 09:28:57.327 11786-11786/com.onlylemi.androidtest I/TestFragment: onPause
+03-12 09:28:57.327 11786-11786/com.onlylemi.androidtest I/FragmentActivity: onPause
+03-12 09:28:57.797 11786-11786/com.onlylemi.androidtest I/TestFragment: onStop
+03-12 09:28:57.797 11786-11786/com.onlylemi.androidtest I/FragmentActivity: onStop
+03-12 09:28:57.797 11786-11786/com.onlylemi.androidtest I/TestFragment: onDestroyView
+03-12 09:28:57.798 11786-11786/com.onlylemi.androidtest I/TestFragment: onDestroy
+03-12 09:28:57.798 11786-11786/com.onlylemi.androidtest I/TestFragment: onDetach
+03-12 09:28:57.798 11786-11786/com.onlylemi.androidtest I/FragmentActivity: onDestroy
+```
+
 ### Activity中如何动态的添加Fragment
 
+```java
+FragmentTransaction transaction = getSupportFragmentManager().beginTransaction();
+// 添加
+transaction.add(R.id.container,
+                    new TestFragment()).commit();
+// 替换
+transaction.replace(R.id.container,
+                    new TestFragment()).commit();
 
-## 内存不足时，怎么保持Activity的一些状态，在哪个方法里面做具体操作？
+// 返回栈
+transaction.addToBackStack(null);
+```
+
+### Activity 与 Fragment 通信
+
+* FragmentManager 提供了 findviewbyid 来得到 fragmnet 的对象
+* Fragment 中提供了 getActivity() 获取 activity 实例
+
 
 
 ## Scrollview怎么判断是否滑倒底部
 
-## ViewPager 的怎么做性能优化
+* 实现OnTouchListener来监听是否滑动到最底部
+* 重写ScrollView的onScrollChanged的方法，在onScrollChanged函数中判断
 
-## Asynctask具体用法？
+参考：http://www.07net01.com/2015/07/883727.html
 
-## Asynctask的Do in background方法是怎么通知UI线程刷新进度条的？
+## Asynctask
 
-## Asynctask的Do in background方法默认是返回 true ，表示任务完成，如果想返回具体的数据呢，怎么做。如果Activity被销毁了，还会执行到postexcutd方法吗？
+## Service
 
-## View中onTouch，onTouchEvent，onClick的执行顺序
+## 广播
 
-## 不使用动画，怎么实现一个动态的 View？
+### 注册广播
 
-## Postvalidata与Validata有什么区别？
+* 代码中注册，进行监听。广播跟随程序的生命周期
+```java
+IntentFilter intentFilter = new IntentFilter();
+intentFilter.addAction("android.net.conn.CONNECTIVITY_VHANGE");
+BroadcastReceiver receiver = new BroadcastReceiver() {
+    @Override
+    public void onReceive(Context context, Intent intent) {
+        // 监听action 的处理事件
+    }
+};
+registerReceiver(receiver, intentFilter);
+```
+* 配置xml文件中注册，静态注册实现开机启动。是常驻型
+```xml
+<receiver android:name=".MyBroadcastReceiver">
+    <intent-filter>
+        <action android:name="android.net.conn.CONNECTIVITY_VHANGE"/>
+    </intent-filter>
+</receiver>
+```
+* 本地广播只能使用代码注册
 
-## Asset与raw都能存放资源，他们有什么区别？
+## 数据持久化
 
-## 如何自定义ViewGroup？
+### 文件储存
 
-## 什么是 MVC 模式？MVC 模式的好处是什么？
+* 存：openFileOutput
+* 读：openFileInput
 
-## JVM 和Dalvik虚拟机的区别
+### SharedPreferences 储存（原理是xml文件）
 
-## 应用常驻后台，避免被第三方杀掉的方法，讲讲你用过的奇淫巧技？
+```java
+// 存
+SharedPreferences.Editor editor = getSharedPreferences("data", MODE_PRIVATE).edit();
+editor.putString("name", "xiaoming");
+editor.commit();
 
-## 数据持久化的四种方式有哪些？
+// 读
+SharedPreferences preferences = getSharedPreferences("data", MODE_PRIVATE);
+preferences.getString("name", "");
+```
 
-## Android的新技术
+### SQLite 数据库储存
+
+使用 SQLiteOpenHelper，重写 onCreate() 和 onUpgrade()
+
+* onCreate()。只会在第一次新建数据库的时候会被调用
+* onUpgrade()。当数据库的版本发生变化时，会调用
+
+## Content Provider
+
