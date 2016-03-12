@@ -6,6 +6,13 @@
 
 * 弹出Toast和AlertDialog的时候Activity的生命周期不会有改变
 
+### Activity 启动模式
+
+* **standard**。默认启动方式。每当启动一个新的Activity时，它就会在返回栈中入栈（会出现重复的Activity对象）
+* **singleTop**。启动Activity时，如果发现返回栈的**栈顶**已经是该activity时，则直接使用它，而不再创建新的实例
+* **singleTask**。每次启动该activity时，系统首先会在返回栈中检查是否存在该activity的实例，如果发现已经存在则直接使用该实例，并把在这个活动上的所有活动都出栈
+* **singleInstance**。会有一个单独的返回栈来管理该activity，不管哪个应用访问都公用同一个返回栈，解决共享活动实例的问题
+
 ### 横竖屏切换
 
 * 设置 android:configChanges="orientation" 和不设置这个属性，生命周期表现为重新创建activity
@@ -164,9 +171,70 @@ transaction.addToBackStack(null);
 
 参考：http://www.07net01.com/2015/07/883727.html
 
-## Asynctask
+## 异步消息处理机制
+
+* **Message**
+    * 线程之间传递的消息。
+* **Handler**
+    * 发送消息。sendMessage()
+    * 处理消息。handleMessage()
+* **MessageQuese**
+    * 消息队列，存放handle发送的消息
+* **Looper**
+    * MessageQuese 的管家，调用Looper的loop()方法后，进入无限的循环，每当发现存在待处理的消息，就会将它取出传递到handler的handleMessage()方法（回调dispatchMessage()）
+
+
+## AsyncTask
+
+异步加载。原理上也是异步消息处理
+
+```java
+class MyAsyncTask extends AsyncTask<Params, Progress, Result>
+
+// Params：执行任务时需要传入的参数
+// Progress：后台任务进行时，需要在界面上显示当前的进度
+// Result：任务执行完毕后，结果进行返回
+```
+
+* onPreExecute()
+    * 后台任务开始执行之前调用，用于进行界面的初始化
+* doInBackground(Params...)
+    * 该方法处于子线程中，处理耗时任务（后台任务）
+* onProgressUpdate(Progress...)
+    * 后台任务执行中调用，主要进行UI的实时更新
+* onPostExecute(Result)
+    * 后台任务执行完成之后调用
 
 ## Service
+
+### 注册服务
+```xml
+<service android:name=".MyService">
+            
+</service>
+```
+```java
+// 启动服务
+Intent startIntent = new Intent(this, MyService.class);
+startService(startIntent);
+
+// 停止服务
+Intent stopIntent = new Intent(this, MyService.class);
+stopService(stopIntent);
+```
+
+### 方法
+
+* onCreate()
+    * 服务创建的时候调用
+* onStartCommand()
+    * 每次服务启动的时候调用
+* onDestroy()
+    * 服务销毁的时候调用
+
+### Activity 与 Service 通信
+
+* onBind()方法。通过在service中自定义类继承Binder，产生一个该对象的引用，再通过onbind方法返回该引用。在activity的使用bindService来绑定服务
 
 ## 广播
 
@@ -222,4 +290,6 @@ preferences.getString("name", "");
 * onUpgrade()。当数据库的版本发生变化时，会调用
 
 ## Content Provider
+
+不同的应用程序之间实现数据共享。
 
