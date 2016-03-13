@@ -25,7 +25,7 @@
 
 ### 内存不足时，怎么保持Activity的一些状态，在哪个方法里面做具体操作？
 
-onPause()方法
+onSaveInstanceState()方法，通过bundle
 
 ## ListView
 
@@ -312,16 +312,22 @@ InputStream is = getResources().openRawResource(R.id.filename);
 ```
 2.读取assets下的文件资源，通过以下方式获取输入流来进行写操作
 ```java
-AssetManager am = null;  
-am = getAssets();  
+AssetManager am = getAssets();  
 InputStream is = am.open("filename");  
 ```
 
-## Postvalidata 与 Invalidate 有什么区别？
+## postvalidata 与 invalidate 有什么区别？
 
-* Invalidate 在UI线程自身中使用。刷新时采用Handler
-* Postvalidata 而在非UI线程中使用
+* invalidate 在UI线程自身中使用。刷新时采用Handler
+* postvalidata 而在非UI线程中使用
+
+## Serializable 与 Parcelable 
+
+* Serializable的作用是为了保存对象的属性到本地文件、数据库、网络流、rmi以方便数据传输，当然这种传输可以是程序内的也可以是两个程序间的。而Android的Parcelable的设计初衷是因为Serializable效率过慢，为了在程序内不同组件间以及不同Android程序间(AIDL)高效的传输数据而设计，这些数据仅在内存中存在，Parcelable是通过IBinder通信的消息的载体。
+* Parcelable的性能比Serializable好，在内存开销方面较小，所以在内存间数据传输时推荐使用Parcelable，如activity间传输数据，而Serializable可将数据持久化方便保存，所以在需要保存或网络传输数据时选择Serializable，因为android不同版本Parcelable可能不同，所以不推荐使用Parcelable进行数据持久化
 
 ## JVM 和 Dalvik虚拟机的区别？
 
-
+* Dalvik VM是基于寄存器的架构，JVM基于栈架构
+* Dalvik可以允许多个instance 运行
+* JVM 运行的是java字节码.class，Dalvik运行的是自定义的.dex字节码格式（java类被编译成.class文件后，会通过一个dx工具将所有的.class文件转换成一个.dex文件）
