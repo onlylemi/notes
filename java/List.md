@@ -4,7 +4,7 @@
 
 大家先看下集合中的类图
 
-![集合类图](https://raw.githubusercontent.com/onlylemi/android-source-code-analysis/master/img/collection.png)
+![集合类图](https://raw.githubusercontent.com/onlylemi/notes/master/images/collection.png)
 
 ## Collection
 

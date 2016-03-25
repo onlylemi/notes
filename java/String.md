@@ -10,7 +10,7 @@
 
 首先先看下类图（下图）
 
-![String类图](https://raw.githubusercontent.com/onlylemi/android-source-code-analysis/master/img/String.png)
+![String类图](https://raw.githubusercontent.com/onlylemi/notes/master/images/String.png)
 
 ## 类定义
 
