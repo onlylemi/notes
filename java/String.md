@@ -1,10 +1,6 @@
 # 从源码角度了解 String
 
-> 从今天开始我也写我的 Blog 了。不定时给大家更新各种干活，技术&艺术&创意编程...
-
-> 首先感谢 [@代码家](http://github.com/daimajia) 的指导，尝试做一些从来没做过的事；不要在意网上有没有，按照自己的思维想法可以写一些。感谢 [@程鹏Paul](https://www.linkedin.com/in/peng-cheng-3890b361/zh-cn)，带我进入国内艺术圈，创意编程圈，我相信 [OF COURSE](http://www.ofcourse.io) 将会越来越壮大，将会让每一个都体会到创意编程的乐趣。
-
-废话不多说了，今天给从源码的角度给大家介绍 String、StringBuilder，StringBuffer 的到底有什么样的区别？
+String、StringBuilder，StringBuffer 的到底有什么样的区别？
 
 ## 类图
 
@@ -294,11 +290,3 @@ public int hashCode() {
     return h;
 }
 ```
-
-## END
-
-通过以上学习，应该知道 String 基本原理了吧。后续将会从源码角度继续解析其他类，欢迎大家关注学习。
-
-欢迎关注我的**微信公众平台**，第一时间获取最新更新。
-
-![微信公众平台@onlylemi](https://onlylemi.github.io/assets/images/qrcode_wechat.jpg)

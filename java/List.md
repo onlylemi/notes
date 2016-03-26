@@ -1,9 +1,5 @@
 # 从源码角度了解 List
 
-今天开始给大家介绍有关 Java 里的数据结构集合。我们最长使用的 **List**、**Set**、**HashMap** 等就是这块的知识点。
-
-大家先看下集合中的类图
-
 ![集合类图](https://raw.githubusercontent.com/onlylemi/notes/master/images/collection.png)
 
 ## Collection
@@ -277,10 +273,3 @@ public synchronized int search(Object o) {
 ## 推荐阅读
 
 [从源码角度了解 String](https://onlylemi.github.io/blog/android-analysis-string/)
-
-## END
-
-明天给大家解析 `Set` ，欢迎大家关注学习。
-
-欢迎关注我的**微信公众平台(@onlylemi)**，第一时间获取最新更新。  
-![微信公众平台(@onlylemi)](https://onlylemi.github.io/assets/images/qrcode_wechat.jpg)
