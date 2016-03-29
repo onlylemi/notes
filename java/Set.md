@@ -41,4 +41,4 @@ HashSet(int initialCapacity, float loadFactor, boolean dummy) {
 
 ## 推荐阅读
 
-[从源码角度了解 Map](https://onlylemi.github.io/blog/android-analysis-map/)
+[从源码角度了解 Map](https://github.com/onlylemi/notes/blob/master/java/Map.md)
