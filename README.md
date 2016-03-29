@@ -14,6 +14,7 @@
 ## Android
 
 * [Android 基础知识](https://github.com/onlylemi/notes/blob/master/android/Android基础知识.md)
+* [Android 耗电解决](https://github.com/onlylemi/notes/blob/master/android/Android耗电解决.md)
 
 
 ## END
