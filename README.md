@@ -1,7 +1,5 @@
 # onlylemi notes（持续更新中）
 
-## [大神 Blog](https://github.com/onlylemi/notes/blob/master/Blog.md)
-
 ## Java
 
 * [Java 基础知识](https://github.com/onlylemi/notes/blob/master/java/Java基础知识点.md)
@@ -15,7 +13,7 @@
 
 * [Android 基础知识](https://github.com/onlylemi/notes/blob/master/android/Android基础知识.md)
 * [Android 耗电解决](https://github.com/onlylemi/notes/blob/master/android/Android耗电解决.md)
-
+* [解决 Android 应用启动白色闪屏](https://github.com/onlylemi/notes/blob/master/android/解决Android应用启动白色闪屏.md)
 
 ## END
 
