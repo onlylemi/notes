@@ -1,8 +1,14 @@
 # onlylemi notes（持续更新中）
 
+## 已开源
+
+* [AndroidCapture For Processing](https://github.com/onlylemi/processing-android-capture)
+* [MapView For Android](https://github.com/onlylemi/MapView)
+* [GeneticTSP](https://github.com/onlylemi/GeneticTSP)
+
 ## Java
 
-* [Java 基础知识](https://github.com/onlylemi/notes/blob/master/java/Java基础知识点.md)
+* [Java 基础知识](https://github.com/onlylemi/notes/lbob/master/java/Java基础知识点.md)
 * [Java 设计模式](https://github.com/onlylemi/notes/blob/master/java/Java设计模式.md)
 * [String](https://github.com/onlylemi/notes/blob/master/java/String.md)
 * [List](https://github.com/onlylemi/notes/blob/master/java/List.md)
