@@ -5,7 +5,8 @@
 > **优点**：  
 * 结构清晰
 * 耦合度降低  
-**缺点**：  
+
+> **缺点**：  
 * 随着策略的增加，子类也会变得繁多，带来额外开销
 * 对客户端暴露所有的策略，有悖于[迪米特法则](https://github.com/onlylemi/notes/blob/master/%E3%80%8AAndroid%E6%BA%90%E7%A0%81%E8%AE%BE%E8%AE%A1%E6%A8%A1%E5%BC%8F%E8%A7%A3%E6%9E%90%E4%B8%8E%E5%AE%9E%E6%88%98%E3%80%8B/chapter1-%E9%9D%A2%E5%90%91%E5%AF%B9%E8%B1%A1%E5%85%AD%E5%A4%A7%E5%8E%9F%E5%88%99.md#迪米特原则lod)
 

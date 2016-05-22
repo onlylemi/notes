@@ -22,6 +22,7 @@
 * [Android 基础知识](https://github.com/onlylemi/notes/blob/master/android/Android基础知识.md)
 * [Android 耗电解决](https://github.com/onlylemi/notes/blob/master/android/Android耗电解决.md)
 * [解决 Android 应用启动白色闪屏](https://github.com/onlylemi/notes/blob/master/android/解决Android应用启动白色闪屏.md)
+* [Android消息通信Handler源码解析](https://github.com/onlylemi/notes/blob/master/android/Android消息通信Handler源码解析.md)
 
 ## 读书笔记
 
