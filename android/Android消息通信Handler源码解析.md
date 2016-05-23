@@ -17,6 +17,8 @@
 
 在子线程中，通过 Handler 更新 UI 有四种方式。以更新 TextView 的值为参考，以下部分知识主要代码，如果我们直接在子线程中直接更新 UI 线程，就会下面的异常
 
+### 异常
+
 * **异常1**
 
 ```
@@ -32,7 +34,9 @@ Process: com.onlylemi.test1_handler, PID: 1982
 	java.lang.RuntimeException: Can't create handler inside thread that has not called Looper.prepare()
 ```
 
-> 源代码请看这里：[https://github.com/onlylemi/AndroidDemo/Test1_Handler](https://github.com/onlylemi/AndroidDemo/Test1_Handler)
+### 子线程更新 UI 方式
+
+> 项目源代码请看这里：[https://github.com/onlylemi/AndroidTest/tree/master/Test1_Handler](https://github.com/onlylemi/AndroidTest/tree/master/Test1_Handler)
 
 * 第1种：handler.post()
 
@@ -110,7 +114,36 @@ public void run() {
 }
 ```
 
+## 子线程中生成一个 Handler
+
+```java
+	class MyThread extends Thread {
+
+        public Handler handler1;
+        public Looper looper;
+
+        @Override
+        public void run() {
+            Looper.prepare();
+            looper = Looper.myLooper();
+
+            handler1 = new Handler() {
+                @Override
+                public void handleMessage(Message msg) {
+                    Log.i(TAG + " thread:", Thread.currentThread().getName());
+
+                    handler.sendEmptyMessageDelayed(1, 1000);
+                }
+            };
+            Looper.loop();
+            looper.quit();
+        }
+    }
+```
+
 ## 源码解析
+
+### new Handler()
 
 当我们在生成一个 Handler 对象前，必须调用 Looper.prepare() 方法，去检查我们当前的线程中是否已经存在一个 Looper 对象，不存在时就去去创建。
 
@@ -153,7 +186,7 @@ public void run() {
     }
 ```
 
-但是会发现在 UI 线程中我们并没有去生成一个 looper，但是也没有报异常，这是因为，Android 在启动的过程中，就会默认为 UI 线程生成一个 Looper 对象，在 `ActivityThread` 中调用 `Looper.prepareMainLooper()` 方法
+但是会发现在 UI 线程中我们并没有去生成一个 looper，但是也没有报异常，这是因为，Android 在启动的过程中，就会默认为 UI 线程生成一个 Looper 对象，在 `ActivityThread` 中会发现在 `main()` 中调用 `Looper.prepareMainLooper()` 方法
 
 ```java
 	// 应用启动时会调用 ActivityThread 的 main() 入口
@@ -198,3 +231,253 @@ public void run() {
 
 > 从上面我们会发现，当我们自己调用 `prepare()` 生成一个 `Looper` 对象时，内部实现调用的是 `prepare(true)`，而在 `ActivityThread` 中调用 `prepareMainLooper()` 方法时，调用的是 `prepare(false)`。其实这里的参数的意思代表我们当前线程的 `Looper` 是否需要 `quit`，默认认为 UI 线程的 Looper 不可以，所以为 `false`；子线程中的 `Looper` 可以退出，所以为 `true`。
 
+当我们在子线程中更新 UI 的时候，Handler内部发生了什么，我们在主线程中是这样使用，通过 sendMessage() 发送消息，然后在 handlerMessage() 中处理消息
+
+```java
+private Handler handler = new Handler(){
+	@Override
+    public void handleMessage(Message msg) {
+		textView.setText("Text View2");
+    }
+};
+
+
+public void run() {
+    try {
+    	Thread.sleep(2000);
+    	// 子线程中发送一个 handler 消息，通过 handler 去处理这个消息，通过 handlerMessage() 方法
+		handler.sendEmptyMessage(1);
+    } catch (InterruptedException e) {
+        e.printStackTrace();
+    }
+}
+```
+
+### sendMessage()
+
+在这里我们采用，`handler.sendEmptyMessage(1)` 去发送一个空消息
+
+```java
+	// 发送一个空的消息
+	public final boolean sendEmptyMessage(int what) {
+        return sendEmptyMessageDelayed(what, 0);
+    }
+
+    public final boolean sendEmptyMessageDelayed(int what, long delayMillis) {
+    	// 内部也会把这个消息 封装成一个消息对象
+        Message msg = Message.obtain();
+        msg.what = what;
+        return sendMessageDelayed(msg, delayMillis);
+    }
+
+    // 而对于 sendMessage 直接发送传递的消息就可以
+    public final boolean sendMessage(Message msg){
+        return sendMessageDelayed(msg, 0);
+    }
+
+    // 消息发送的延迟时间 delayMillis
+    public final boolean sendMessageDelayed(Message msg, long delayMillis) {
+        if (delayMillis < 0) {
+            delayMillis = 0;
+        }
+        return sendMessageAtTime(msg, SystemClock.uptimeMillis() + delayMillis);
+    }
+
+    public boolean sendMessageAtTime(Message msg, long uptimeMillis) {
+    	// 对于 handler 发送的消息，都会存放在一个 MessageQueue 消息队列中
+        MessageQueue queue = mQueue;
+        if (queue == null) {
+            RuntimeException e = new RuntimeException(
+                    this + " sendMessageAtTime() called with no mQueue");
+            Log.w("Looper", e.getMessage(), e);
+            return false;
+        }
+        return enqueueMessage(queue, msg, uptimeMillis);
+    }
+
+    private boolean enqueueMessage(MessageQueue queue, Message msg, long uptimeMillis) {
+    	// 每个消息都会有一个 target，相当于这个消息将来会发给谁，默认为 this，也就是 每个 handler 自己发送的消息自己将来去处理
+        msg.target = this;
+        if (mAsynchronous) {
+            msg.setAsynchronous(true);
+        }
+        return queue.enqueueMessage(msg, uptimeMillis);
+    }
+
+    // MessageQueue 的 enqueueMessage 方法在 ide 下不能查看，我们通过 Source Insight 可以看到，
+    // 将我们发送的每一个消息通过 Message 的 next 连接成链表，维护在消息队列中
+    boolean enqueueMessage(Message msg, long when) {
+    	// 这儿就可以看出，每个 msg 必须有它的 target
+        if (msg.target == null) {
+            throw new IllegalArgumentException("Message must have a target.");
+        }
+        if (msg.isInUse()) {
+            throw new IllegalStateException(msg + " This message is already in use.");
+        }
+
+        synchronized (this) {
+            if (mQuitting) {
+                IllegalStateException e = new IllegalStateException(
+                        msg.target + " sending message to a Handler on a dead thread");
+                Log.w(TAG, e.getMessage(), e);
+                msg.recycle();
+                return false;
+            }
+
+            msg.markInUse();
+            msg.when = when;
+            Message p = mMessages;
+            boolean needWake;
+            if (p == null || when == 0 || when < p.when) {
+                // New head, wake up the event queue if blocked.
+                msg.next = p;
+                mMessages = msg;
+                needWake = mBlocked;
+            } else {
+                // Inserted within the middle of the queue.  Usually we don't have to wake
+                // up the event queue unless there is a barrier at the head of the queue
+                // and the message is the earliest asynchronous message in the queue.
+                needWake = mBlocked && p.target == null && msg.isAsynchronous();
+                Message prev;
+                for (;;) {
+                    prev = p;
+                    p = p.next;
+                    if (p == null || when < p.when) {
+                        break;
+                    }
+                    if (needWake && p.isAsynchronous()) {
+                        needWake = false;
+                    }
+                }
+                msg.next = p; // invariant: p == prev.next
+                prev.next = msg;
+            }
+
+            // We can assume mPtr != 0 because mQuitting is false.
+            if (needWake) {
+                nativeWake(mPtr);
+            }
+        }
+        return true;
+    }
+```
+
+这样我们发送的消息，全都存到了 MessageQueue 中，我们先了解下 Message
+
+### Message
+
+handler 在发送消息的时候，sendMessage() 方法会传递一个 Message 对象
+
+* `what` —— 消息的标识
+* `arg1`、`arg1`  —— 提供的两个传递简单 int 型参数
+* `obj` —— 传递的一个 Object 对象
+* `date` —— Bundle 对象。把需要传递的数据封装到 Bundle 中进行传递
+* `target` —— Handler对象。消息最终传递的目标 Handler，在 Looper.loop() 使用该 target 来回调 handler 的 dispatchMessage() 方法
+* `callback` —— Runnable 对象。当我们在子线程中采用 post 方式更新 UI 时，需要用它来回调
+
+```java
+// 生成一个 msg 对象时，建议使用 obtain() 方法，也就是单例模式
+// 也可以使用 new Message()
+Message msg = Message.obtain();
+msg.arg1 = 1;
+// 发送消息
+handler.sendMessage(msg);
+```
+
+### Looper.loop()
+
+我们 handler 发送的所有消息都储存在 MessageQueue 消息队列中，再通过 `Looper.loop()` 去分发这些消息
+
+```java
+	public static void loop() {
+		// 首先获取当前线程的 looper 对象
+        final Looper me = myLooper();
+        if (me == null) {
+            throw new RuntimeException("No Looper; Looper.prepare() wasn't called on this thread.");
+        }
+        // 通过，looper 对象获取该线程的消息队列
+        final MessageQueue queue = me.mQueue;
+
+        // Make sure the identity of this thread is that of the local process,
+        // and keep track of what that identity token actually is.
+        Binder.clearCallingIdentity();
+        final long ident = Binder.clearCallingIdentity();
+
+        // 消息处理的时候是个死循环，知道所有消息都处理完毕
+        for (;;) {
+            Message msg = queue.next(); // might block
+            if (msg == null) {
+                // 没有消息时，直接退出
+                return;
+            }
+
+            // This must be in a local variable, in case a UI event sets the logger
+            Printer logging = me.mLogging;
+            if (logging != null) {
+                logging.println(">>>>> Dispatching to " + msg.target + " " +
+                        msg.callback + ": " + msg.what);
+            }
+
+            // 通过 msg 的 target 去回调该消息 handler 的 dispatchMessage() 方法
+            msg.target.dispatchMessage(msg);
+
+            if (logging != null) {
+                logging.println("<<<<< Finished to " + msg.target + " " + msg.callback);
+            }
+
+            // Make sure that during the course of dispatching the
+            // identity of the thread wasn't corrupted.
+            final long newIdent = Binder.clearCallingIdentity();
+            if (ident != newIdent) {
+                Log.wtf(TAG, "Thread identity changed from 0x"
+                        + Long.toHexString(ident) + " to 0x"
+                        + Long.toHexString(newIdent) + " while dispatching to "
+                        + msg.target.getClass().getName() + " "
+                        + msg.callback + " what=" + msg.what);
+            }
+
+            msg.recycleUnchecked();
+        }
+    }
+
+    // handler 的 dispatchMessage 方法
+    public void dispatchMessage(Message msg) {
+    	// 首先判断 msg 的 callback 是否为 null，为空时直接调用 handleCallback(msg) 方法
+        if (msg.callback != null) {
+            handleCallback(msg);
+        } else {
+            if (mCallback != null) {
+                if (mCallback.handleMessage(msg)) {
+                    return;
+                }
+            }
+            // 会回调 handleMessage() 方法，我们在 new Handler() 的时候必须重写这个方法
+            handleMessage(msg);
+        }
+    }
+
+    // 在 handleCallback 方法中直接调用 run() 方法
+    private static void handleCallback(Message message) {
+        message.callback.run();
+    }
+```
+
+在开头更新 UI 的其他几种 post 方式，查看源码你会发现，最终都会调用到 handler.post() 这个方法，
+
+```java
+	// post 方法也会调用 sendMessageDelayed() 去发送消息，
+	// 不过先需要 getPostMessage(r) 去封装这个消息对象
+	public final boolean post(Runnable r) {
+       return  sendMessageDelayed(getPostMessage(r), 0);
+    }
+
+    private static Message getPostMessage(Runnable r) {
+        Message m = Message.obtain();
+        // 会把你传递的 runnable 对象，赋给 msg 的 callback
+        // 这样在 dispatchMessage 中判断的时候就会回调 handleCallback(msg) 方法
+        m.callback = r;
+        return m;
+    }
+```
+
+> 从以上我们会发现 `callback` 直接去调用 `run()` 方法，所以在这里 `post(new Runnable())` 其实就是一个普通的回调函数，千万不要当成是新开一个线程
