@@ -481,3 +481,130 @@ handler.sendMessage(msg);
 ```
 
 > 从以上我们会发现 `callback` 直接去调用 `run()` 方法，所以在这里 `post(new Runnable())` 其实就是一个普通的回调函数，千万不要当成是新开一个线程
+
+### HandlerThread
+
+Activity 中我们 new handler() 对象的消息处理都是在主线程中，当我们需要让 handler 的消息处理在子线程中时，我们需要在生成 handler 对象时传递子线程中的一个 looper 对象，如果我们自己在子线程中生成一个 looper，然后给 hander 使用时，因为线程的不同步，我们并不能保证在 new handler 是，looper 已经在子线程中生成了，我们就需要用到 `HandlerThread`，他帮我们解决这个问题
+
+**不使用 HandlerThread**
+
+```java
+    private MyThread thread;
+    private Handler handler;
+
+    @Override
+    protected void onCreate(Bundle savedInstanceState) {
+        super.onCreate(savedInstanceState);
+        TextView textView = new TextView(this);
+        textView.setText("SecondActivity");
+        setContentView(textView);
+
+        thread = new MyThread();
+        thread.start();
+
+        // looper 你确定真的已经生成了吗？（线程不同问题，可能会报空指针异常）
+        handler = new Handler(thread.looper) {
+            @Override
+            public void handleMessage(Message msg) {
+                Log.i(TAG + " thread:", Thread.currentThread().getName());
+            }
+        };
+        handler.sendEmptyMessage(1);
+    }
+
+    class MyThread extends Thread {
+
+        public Looper looper;
+
+        @Override
+        public void run() {
+            // 生成 looper 对象
+            Looper.prepare();
+            // 获取 looper 对象
+            looper = Looper.myLooper();
+            // 分发消息
+            Looper.loop();
+        }
+    }
+```
+
+可能就像上面一样，你会这样去写，这样的结果就是可能会报空指针异常，看这里代码
+
+```java
+    public Handler(Looper looper) {
+        this(looper, null, false);
+    }
+
+    public Handler(Looper looper, Callback callback, boolean async) {
+        mLooper = looper;
+        // looper 如果为 null 就会报空指针啊
+        mQueue = looper.mQueue;
+        mCallback = callback;
+        mAsynchronous = async;
+    }
+```
+
+**使用 HandlerThread**
+
+```java
+    private HandlerThread thread;
+
+    protected void onCreate(Bundle savedInstanceState) {
+        super.onCreate(savedInstanceState);
+        TextView textView = new TextView(this);
+        textView.setText("ThirdActivity");
+        setContentView(textView);
+
+        thread = new HandlerThread("Handler Thread");
+        thread.start();
+
+        // handler = new Handler() {
+        handler = new Handler(thread.getLooper()) {
+            @Override
+            public void handleMessage(Message msg) {
+                Log.i(TAG, "thread: " + Thread.currentThread().getName());
+
+                // 空参数时，输出：main （UI 主线程）
+                // 有参数时，输出：Handler Thread （子线程）
+            }
+        };
+
+        handler.sendEmptyMessageDelayed(1, 1000);
+    }
+```
+
+如果采用 `HandlerThread` 去获取 looper 一定会获取到，因为加了同步锁
+
+```java
+    public Looper getLooper() {
+        if (!isAlive()) {
+            return null;
+        }        
+        
+        synchronized (this) {
+            while (isAlive() && mLooper == null) {
+                try {
+                    // 如果 looper 为空，进入 wait 状态，直到被调用 notify()或notifyAll()
+                    wait();
+                } catch (InterruptedException e) {
+                }
+            }
+        }
+        return mLooper;
+    }
+
+    @Override
+    public void run() {
+        mTid = Process.myTid();
+        Looper.prepare();
+        synchronized (this) {
+            mLooper = Looper.myLooper();
+            // 当获取到 looper 对象时，调用 notifyAll，保证了 getLooper() 获取到的 looper 一定不为 null
+            notifyAll();
+        }
+        Process.setThreadPriority(mPriority);
+        onLooperPrepared();
+        Looper.loop();
+        mTid = -1;
+    }
+```
