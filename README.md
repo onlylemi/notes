@@ -1,5 +1,10 @@
 # onlylemi notes
 
+> **关于我，欢迎关注**  
+微博：[@onlylemi](http://weibo.com/xiaomi0623)  
+邮箱：[onlylemi.com(AT)gmail.com](mailto:onlylemi.com@gmail.com)  
+如果你有问题或建议，请在微博上[私信](http://weibo.com/xiaomi0623)我 :smiley:
+
 ## 已开源
 
 * [MapView For Android](https://github.com/onlylemi/MapView)
@@ -27,9 +32,3 @@
 ## 读书笔记
 
 * `更新中` [Android源码设计模式解析与实战](https://github.com/onlylemi/notes/tree/master/%E3%80%8AAndroid%E6%BA%90%E7%A0%81%E8%AE%BE%E8%AE%A1%E6%A8%A1%E5%BC%8F%E8%A7%A3%E6%9E%90%E4%B8%8E%E5%AE%9E%E6%88%98%E3%80%8B)
-
-## END
-
-欢迎关注我的**微信公众平台(@onlylemi)**，第一时间获取最新更新。
-
-![微信公众平台@onlylemi](https://onlylemi.github.io/assets/images/qrcode_wechat.jpg)
