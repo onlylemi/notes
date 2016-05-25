@@ -10,7 +10,7 @@
 
 ## UML
 
-![](https://raw.githubusercontent.com/onlylemi/img/master/state_uml.png)
+![](https://raw.githubusercontent.com/onlylemi/res/master/dp_state_uml.png)
 
 * Context（LoginContext） —— 定义客户感兴趣的接口，维护一个 state 子类的实例
 * State（UserState） —— 状态接口，定义一组接口，便是该状态的行为

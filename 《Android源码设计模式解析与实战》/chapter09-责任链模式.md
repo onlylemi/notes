@@ -6,7 +6,7 @@
 
 ## UML
 
-![](https://raw.githubusercontent.com/onlylemi/img/master/dp_handler_uml.png)
+![](https://raw.githubusercontent.com/onlylemi/res/master/dp_handler_uml.png)
 
 * Client（HandlerTest） —— 调用类
 * Leader（Handler） —— 处理请求的抽象类或接口，包含指向下一个处理类的 nextHandler 和 一个处理请求的方法 handRequest()，主要主导思想就是判断是否满足条件，满足处理，不满足由 nextHandler 去处理

@@ -8,7 +8,7 @@
 
 ## UML
 
-![](https://raw.githubusercontent.com/onlylemi/img/master/dp_command_uml.png)
+![](https://raw.githubusercontent.com/onlylemi/res/master/dp_command_uml.png)
 
 * Receiver —— 接受者角色
 * Command —— 命令接口或抽象类

@@ -11,12 +11,12 @@
 * ConcreateBuilder —— 具体的 Builder 类
 * Director —— 统一组装过程
 
-![](https://raw.githubusercontent.com/onlylemi/notes/master/images/build_uml.png)
+![](https://raw.githubusercontent.com/onlylemi/res/master/dp_build_uml.png)
 
 > 在现实开发中， Director 角色经常会被忽略，世界使用一个 Builder 去组装，这个 Builder 通常为练市调用，通过 setter 返回 this  
 `Android 中的 Dialog 就是采用此种方式进行创建的。`
 
-![](https://raw.githubusercontent.com/onlylemi/notes/master/images/build_uml2.png)
+![](https://raw.githubusercontent.com/onlylemi/res/master/dp_build_uml2.png)
 
 ## 代码
 

@@ -11,7 +11,7 @@
 
 ## UML
 
-![](https://raw.githubusercontent.com/onlylemi/img/master/prototype_uml.png)
+![](https://raw.githubusercontent.com/onlylemi/res/master/dp_prototype_uml.png)
 
 ## 示例
 

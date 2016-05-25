@@ -9,7 +9,7 @@
 
 ## UML 
 
-![](https://raw.githubusercontent.com/onlylemi/img/master/dp_interpret_uml.png)
+![](https://raw.githubusercontent.com/onlylemi/res/master/dp_interpret_uml.png)
 
 * ArithmeticExpression —— 抽象解释器类或接口：主要有一个 interpret() 方法，称为解释操作
 * NumExpression —— 终结符表达式：实现与文法中的元素相关联的解释操作，通常一个解释器模式中只有一个终结符表达式，但有多个实例

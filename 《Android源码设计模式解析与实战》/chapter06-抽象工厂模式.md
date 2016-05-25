@@ -7,7 +7,7 @@
 
 ## UML
 
-![](https://raw.githubusercontent.com/onlylemi/img/master/abstract_factory_uml.png)
+![](https://raw.githubusercontent.com/onlylemi/res/master/dp_abstract_factory_uml.png)
 
 ## 示例
 

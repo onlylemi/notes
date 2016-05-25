@@ -6,7 +6,7 @@
 
 ## UML
 
-![](https://raw.githubusercontent.com/onlylemi/img/master/factory_uml.png)
+![](https://raw.githubusercontent.com/onlylemi/res/master/dp_factory_uml.png)
 
 * 工厂（Factory）接口。与调用者直接交互用来提供产品
 * 工厂（MacFactory）实现。实例化产品

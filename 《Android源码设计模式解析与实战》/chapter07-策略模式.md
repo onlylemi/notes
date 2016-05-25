@@ -12,7 +12,7 @@
 
 ## UML
 
-![](https://raw.githubusercontent.com/onlylemi/img/master/strategy_uml1.png)
+![](https://raw.githubusercontent.com/onlylemi/res/master/dp_strategy_uml.png)
 
 * Context —— 用来操作策略的上下文
 * Strategy（SortStrategy） —— 策略的抽象
