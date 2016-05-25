@@ -1,6 +1,6 @@
 # 从源码角度了解 List
 
-![集合类图](https://raw.githubusercontent.com/onlylemi/notes/master/images/collection.png)
+![集合类图](https://raw.githubusercontent.com/onlylemi/res/master/java_collection.png)
 
 ## Collection
 

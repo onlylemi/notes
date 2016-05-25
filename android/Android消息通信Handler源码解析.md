@@ -4,7 +4,7 @@
 
 ## 相关类
 
-![](https://raw.githubusercontent.com/onlylemi/img/master/android_handler.png)
+![](https://raw.githubusercontent.com/onlylemi/res/master/android_handler.png)
 
 * `Handler` —— 发送消息 sendMessage 与处理消息 handleMessage
 * `Looper` —— 负责消息的分发

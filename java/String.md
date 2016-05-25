@@ -6,7 +6,7 @@ String、StringBuilder，StringBuffer 的到底有什么样的区别？
 
 首先先看下类图（下图）
 
-![String类图](https://raw.githubusercontent.com/onlylemi/notes/master/images/String.png)
+![String类图](https://raw.githubusercontent.com/onlylemi/res/master/java_string.png)
 
 ## 类定义
 
