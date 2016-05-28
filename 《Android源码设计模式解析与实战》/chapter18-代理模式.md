@@ -7,8 +7,8 @@
 ![](https://raw.githubusercontent.com/onlylemi/res/master/dp_proxy_uml.png)
 
 * Subject（ILawsuit） —— 抽象的主题类（接口、抽象类）。该类主要是声明真是主题与代理的共同接口方法。
-* RealSubject（） —— 真是的主题类（被委托类、代理类）。定义代理所表示的真实对象及方法，
-* ProxySubject（） —— 代理类（委托类）。持有一个对真是主题类的引用，在所实现的接口方法中调用真是主题类中相应的接口方法执行，以此起到代理的作用。
+* RealSubject（Person） —— 真是的主题类（被委托类、代理类）。定义代理所表示的真实对象及方法，
+* ProxySubject（Lawyer） —— 代理类（委托类）。持有一个对真是主题类的引用，在所实现的接口方法中调用真是主题类中相应的接口方法执行，以此起到代理的作用。
 
 ## 示例
 
