@@ -5,14 +5,15 @@
 邮箱：[onlylemi.com(AT)gmail.com](mailto:onlylemi.com@gmail.com)  
 如果你有问题或建议，请在微博上[私信](http://weibo.com/xiaomi0623)我 :smiley:
 
-## 已开源
+## Repository
 
-* [MapView For Android](https://github.com/onlylemi/MapView)
-* [AndroidCapture For Processing](https://github.com/onlylemi/processing-android-capture)
-* [GeneticTSP](https://github.com/onlylemi/GeneticTSP)
-* [MusicVisual](https://github.com/onlylemi/MusicVisual)
-* [i :heart: nerd —— Creative Coding Resources](https://github.com/onlylemi/inerd)
-* [Gank.io 资源 GitHub 备份站](https://github.com/onlylemi/gank.io)
+* `开源` [MapView](https://github.com/onlylemi/MapView) —— Android平台下的室内地图图层控件
+* `开源` [AndroidCapture For Processing](https://github.com/onlylemi/processing-android-capture) —— Processing 与 Android交互库
+* `开源` [download-any-for-github](https://github.com/onlylemi/download-any-for-github) —— Github Chrome插件，可下载任意指定文件或文件夹
+* [GeneticTSP](https://github.com/onlylemi/GeneticTSP) —— 遗传算法解决 TSP 旅行商问题
+* [MusicVisual](https://github.com/onlylemi/MusicVisual) —— Processing 音乐可视化例子代码
+* [i :heart: nerd](https://github.com/onlylemi/inerd) —— 创意编程干货资源补给站
+* [Gank.io](https://github.com/onlylemi/gank.io) ——  Gank.io 资源 GitHub 备份
 
 ## Java
 
@@ -28,7 +29,3 @@
 * [Android 耗电解决](https://github.com/onlylemi/notes/blob/master/android/Android耗电解决.md)
 * [解决 Android 应用启动白色闪屏](https://github.com/onlylemi/notes/blob/master/android/解决Android应用启动白色闪屏.md)
 * [Android消息通信Handler源码解析](https://github.com/onlylemi/notes/blob/master/android/Android消息通信Handler源码解析.md)
-
-## 读书笔记
-
-* `更新中` [Android源码设计模式解析与实战](https://github.com/onlylemi/notes/tree/master/%E3%80%8AAndroid%E6%BA%90%E7%A0%81%E8%AE%BE%E8%AE%A1%E6%A8%A1%E5%BC%8F%E8%A7%A3%E6%9E%90%E4%B8%8E%E5%AE%9E%E6%88%98%E3%80%8B)
