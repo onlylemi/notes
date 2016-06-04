@@ -7,9 +7,9 @@
 
 ## Repository
 
-* `开源` [MapView](https://github.com/onlylemi/MapView) —— Android平台下的室内地图图层控件
-* `开源` [AndroidCapture For Processing](https://github.com/onlylemi/processing-android-capture) —— Processing 与 Android交互库
-* `开源` [download-any-for-github](https://github.com/onlylemi/download-any-for-github) —— Github Chrome插件，可下载任意指定文件或文件夹
+* [MapView](https://github.com/onlylemi/MapView) —— Android平台下的室内地图图层控件
+* [AndroidCapture For Processing](https://github.com/onlylemi/processing-android-capture) —— Processing 与 Android交互库
+* [download-any-for-github](https://github.com/onlylemi/download-any-for-github) —— Github Chrome插件，可下载任意指定文件或文件夹
 * [GeneticTSP](https://github.com/onlylemi/GeneticTSP) —— 遗传算法解决 TSP 旅行商问题
 * [MusicVisual](https://github.com/onlylemi/MusicVisual) —— Processing 音乐可视化例子代码
 * [i :heart: nerd](https://github.com/onlylemi/inerd) —— 创意编程干货资源补给站
