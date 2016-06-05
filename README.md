@@ -17,7 +17,7 @@
 
 ## Java
 
-* [Java 基础知识](https://github.com/onlylemi/notes/lbob/master/Java/Java基础知识点.md)
+* [Java 基础知识](https://github.com/onlylemi/notes/blob/master/Java/Java基础知识点.md)
 * [Java 源码解析——String](https://github.com/onlylemi/notes/blob/master/Java/String.md)
 * [Java 源码解析——List](https://github.com/onlylemi/notes/blob/master/Java/List.md)
 * [Java 源码解析——Map](https://github.com/onlylemi/notes/blob/master/Java/Map.md)
