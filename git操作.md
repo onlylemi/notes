@@ -40,7 +40,7 @@ git remote rename [old-name] [new-name]
 
 ```
 git rm file.txt         // 从版本库中移除，删除文件
-git rm file.txt -cached // 从版本库中移除，不删除原始文件
+git rm file.txt --cached // 从版本库中移除，不删除原始文件
 git rm -r xxx           // 从版本库中删除指定文件夹
 ```
 
