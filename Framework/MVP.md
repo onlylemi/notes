@@ -1,6 +1,6 @@
 # MVP
 
-![](https://github.com/onlylemi/res/blob/master/mvp.png)
+![](https://raw.githubusercontent.com/onlylemi/res/master/mvp.png)
 
 ## 结构
 
