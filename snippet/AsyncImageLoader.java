@@ -117,6 +117,12 @@ public class AsyncImageLoader {
         return bitmap;
     }
 
+    /**
+     * 加入到磁盘中
+     *
+     * @param key
+     * @param bitmap
+     */
     public void putBitmapToDisk(String key, Bitmap bitmap) {
         try {
             DiskLruCache.Editor editor = mDiskCache.edit(hashKeyForDisk(key));
