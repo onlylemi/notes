@@ -1,5 +1,3 @@
-import com.onlylemi.zhihudaily.data.entity.NewsDetail;
-
 import java.util.List;
 
 /**
