@@ -1,8 +1,9 @@
 # Learning Notes
 
 > **关于我，欢迎关注**  
-微博：[@onlylemi](http://weibo.com/xiaomi0623)  
+微博：[@only乐秘](http://weibo.com/xiaomi0623)  
 邮箱：[onlylemi.com(AT)gmail.com](mailto:onlylemi.com@gmail.com)  
+主页：[http://onlylemi.github.io](http://onlylemi.github.io)
 如果你有问题或建议，请在微博上[私信](http://weibo.com/xiaomi0623)我 :smiley:
 
 ## Repository
@@ -32,6 +33,7 @@
 * [Android消息通信Handler源码解析](https://github.com/onlylemi/notes/blob/master/Android/Android消息通信Handler源码解析.md)
 * [异步加载AsyncTask解析](https://github.com/onlylemi/notes/blob/master/Android/异步加载AsyncTask解析.md)
 * [AsyncTask和Handler比较](https://github.com/onlylemi/notes/blob/master/Android/AsyncTask和Handler比较.md)
+* [Android 动画深入学习](https://github.com/onlylemi/notes/blob/master/Android/Android动画深入学习.md)
 
 ## Framework
 
@@ -64,3 +66,19 @@
 * [chapter22 - 享元模式](https://github.com/onlylemi/notes/blob/master/DesignPattern/chapter22-享元模式.md)
 * [chapter23 - 外观模式](https://github.com/onlylemi/notes/blob/master/DesignPattern/chapter23-外观模式.md)
 * [chapter24 - 桥接模式](https://github.com/onlylemi/notes/blob/master/DesignPattern/chapter24-桥接模式.md)
+
+## Snippet
+
+* [App.java](https://github.com/onlylemi/notes/blob/master/snippet/App.java) —— Android 项目开发中的 MyApplication
+* [AsyncImageLoader.java](https://github.com/onlylemi/notes/blob/master/snippet/AsyncImageLoader.java) —— Android 项目图片三级缓存、异步加载类
+* [BitmapLoader.java](https://github.com/onlylemi/notes/blob/master/snippet/BitmapLoader.java) —— Android 项目中加载图片通过 HashMap 缓存 Bitmap 软引用对象
+* [ViewWrapper.java](https://github.com/onlylemi/notes/blob/master/snippet/ViewWrapper.java) —— Android 项目中让属性动画支持 View 的 width、height 的 View 装饰类
+* utils
+	* [ActivityUtils.java](https://github.com/onlylemi/notes/blob/master/snippet/utils/ActivityUtils.java) —— Android 项目中 Activity 工具类
+	* [AppUtils.java](https://github.com/onlylemi/notes/blob/master/snippet/utils/AppUtils.java) —— Android 项目中应用工具类
+	* [HtmlUtils.java](https://github.com/onlylemi/notes/blob/master/snippet/utils/HtmlUtils.java) —— Android 项目中 Html 处理工具类
+	* [TimeUtils.java](https://github.com/onlylemi/notes/blob/master/snippet/utils/TimeUtils.java) —— Android 项目中时间工具类
+* contract
+	* [BasePresenter.java](https://github.com/onlylemi/notes/blob/master/snippet/contract/BasePresenter.java) —— Android 项目 MVP 模式的 BasePresenter 接口
+	* [BaseView.java](https://github.com/onlylemi/notes/blob/master/snippet/contract/BaseView.java) —— Android 项目 MVP 模式的 BaseView 接口
+	* [TestContract.java](https://github.com/onlylemi/notes/blob/master/snippet/contract/BasePresenter.java) —— Android 项目 MVP 模式的 TestContract 接口定义，内部定义 Presenter、View
