@@ -3,7 +3,7 @@
 > **关于我，欢迎关注**  
 微博：[@only乐秘](http://weibo.com/xiaomi0623)  
 邮箱：[onlylemi.com(AT)gmail.com](mailto:onlylemi.com@gmail.com)  
-主页：[http://onlylemi.github.io](http://onlylemi.github.io)
+主页：[http://onlylemi.github.io](http://onlylemi.github.io)  
 如果你有问题或建议，请在微博上[私信](http://weibo.com/xiaomi0623)我 :smiley:
 
 ## Repository
