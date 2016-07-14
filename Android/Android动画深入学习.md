@@ -1,6 +1,8 @@
 # Android动画深入学习
 
-> 参考任玉刚的《Android艺术探索》第七章
+> 参考任玉刚的《Android开发艺术探索》第七章  
+学习代码：[https://github.com/onlylemi/AndroidTest/tree/master/Test8_Animation](https://github.com/onlylemi/AndroidTest/tree/master/Test8_Animation)  
+View动画库可参考代码家的 [AndroidViewAnimations](https://github.com/daimajia/AndroidViewAnimations)
 
 * View 动画
 * 帧动画
@@ -490,3 +492,46 @@ ObjectAnimator.ofInt(ViewWrapper.decorator(view), "width", 800).start();
 * AnimatorListener —— 生命周期的监听
 * AnimatorPauseListener —— 暂停与恢复的监听
 * AnimatorListenerAdapter —— 生命周期的监听
+
+## 插值器和估值器
+
+### 插值器
+
+根据时间流逝的百分比来计算出当前属性改变的百分比。LinearInterpolator、AccelerateDecelerateInterpolator...等。描述动画改变的一种变换状态
+
+```java
+// 线性插值器（y=x）的类实现，getInterpolation 方法，不同的插值器返回不同的结果
+public class LinearInterpolator extends BaseInterpolator implements NativeInterpolatorFactory {
+
+    public LinearInterpolator() {
+    }
+
+    public LinearInterpolator(Context context, AttributeSet attrs) {
+    }
+
+    public float getInterpolation(float input) {
+        return input;
+    }
+
+    /** @hide */
+    @Override
+    public long createNativeInterpolator() {
+        return NativeInterpolatorFactoryHelper.createLinearInterpolator();
+    }
+}
+```
+
+### 估值器
+
+根据当前属性改变的百分比来计算改变后的属性值。IntEvaluator、FloatEvaluator、ArgbEvaluator
+
+```java
+// int 属性的估值器
+public class IntEvaluator implements TypeEvaluator<Integer> {
+
+    public Integer evaluate(float fraction, Integer startValue, Integer endValue) {
+        int startInt = startValue;
+        return (int)(startInt + fraction * (endValue - startInt));
+    }
+}
+```
