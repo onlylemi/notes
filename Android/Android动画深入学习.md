@@ -495,6 +495,13 @@ ObjectAnimator.ofInt(ViewWrapper.decorator(view), "width", 800).start();
 
 ## 插值器和估值器
 
+> 其实这两个东西没啥区别，都是做一些数学运算计算值  
+* **可参考**
+    * [@hujiaweibujidao](https://github.com/hujiaweibujidao) 的 [当数学遇上动画](http://hujiaweibujidao.github.io/blog/2016/05/26/when-math-meets-android-animation/) 三部曲中对插值器和估值器的介绍
+    * [@代码家](https://github.com/daimajia) 的 [AnimationEasingFunctions](https://github.com/daimajia/AnimationEasingFunctions)
+    * [easings.net](http://easings.net/)
+    * [EaseInterpolator](https://github.com/cimi-chen/EaseInterpolator)
+
 ### 插值器
 
 根据时间流逝的百分比来计算出当前属性改变的百分比。LinearInterpolator、AccelerateDecelerateInterpolator...等。描述动画改变的一种变换状态

@@ -34,6 +34,8 @@
 * [异步加载AsyncTask解析](https://github.com/onlylemi/notes/blob/master/Android/异步加载AsyncTask解析.md)
 * [AsyncTask和Handler比较](https://github.com/onlylemi/notes/blob/master/Android/AsyncTask和Handler比较.md)
 * [Android 动画深入学习](https://github.com/onlylemi/notes/blob/master/Android/Android动画深入学习.md)
+* [invalidate 和 postInvalidate 内部原理机制](https://github.com/onlylemi/notes/blob/master/Android/invalidate和postInvalidate内部原理机制.md)
+* [Android 动画原理深入解析](https://github.com/onlylemi/notes/blob/master/Android/Android动画原理深入解析.md)
 
 ## Framework
 
