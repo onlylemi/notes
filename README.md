@@ -30,13 +30,14 @@
 * [Android 基础知识](https://github.com/onlylemi/notes/blob/master/Android/Android基础知识.md)
 * [Android 耗电解决](https://github.com/onlylemi/notes/blob/master/Android/Android耗电解决.md)
 * [解决 Android 应用启动白色闪屏](https://github.com/onlylemi/notes/blob/master/Android/解决Android应用启动白色闪屏.md)
-* [Android消息通信Handler源码解析](https://github.com/onlylemi/notes/blob/master/Android/Android消息通信Handler源码解析.md)
-* [异步加载AsyncTask解析](https://github.com/onlylemi/notes/blob/master/Android/异步加载AsyncTask解析.md)
-* [AsyncTask和Handler比较](https://github.com/onlylemi/notes/blob/master/Android/AsyncTask和Handler比较.md)
+* [Android 消息通信 Handler 源码解析](https://github.com/onlylemi/notes/blob/master/Android/Android消息通信Handler源码解析.md)
+* [异步加载 AsyncTask 解析](https://github.com/onlylemi/notes/blob/master/Android/异步加载AsyncTask解析.md)
+* [AsyncTask 和 Handler 比较](https://github.com/onlylemi/notes/blob/master/Android/AsyncTask和Handler比较.md)
 * [Android 动画深入学习](https://github.com/onlylemi/notes/blob/master/Android/Android动画深入学习.md)
 * [invalidate 和 postInvalidate 内部原理机制](https://github.com/onlylemi/notes/blob/master/Android/invalidate和postInvalidate内部原理机制.md)
 * [Android 动画原理深入解析](https://github.com/onlylemi/notes/blob/master/Android/Android动画原理深入解析.md)
 * [Picasso 图片加载框架的深入学习及解析](https://github.com/onlylemi/notes/blob/master/Android/Picasso图片加载框架的深入学习及解析.md)
+* [EventBus 深入学习](https://github.com/onlylemi/notes/blob/master/Android/EventBus深入学习.md)
 
 ## Framework
 

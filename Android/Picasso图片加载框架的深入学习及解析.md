@@ -2,6 +2,8 @@
 
 [Picasso](https://github.com/square/picasso)、[Glide](https://github.com/bumptech/glide)、[Fresco](https://github.com/facebook/fresco) 都是很好异步图片加载框架。官网地址：[http://square.github.io/picasso/](http://square.github.io/picasso/)
 
+> 版本：2.5.2
+
 ## 使用
 
 使用很简单，就一句话。
