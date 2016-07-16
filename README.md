@@ -36,6 +36,7 @@
 * [Android 动画深入学习](https://github.com/onlylemi/notes/blob/master/Android/Android动画深入学习.md)
 * [invalidate 和 postInvalidate 内部原理机制](https://github.com/onlylemi/notes/blob/master/Android/invalidate和postInvalidate内部原理机制.md)
 * [Android 动画原理深入解析](https://github.com/onlylemi/notes/blob/master/Android/Android动画原理深入解析.md)
+* [Picasso 图片加载框架的深入学习及解析](https://github.com/onlylemi/notes/blob/master/Android/Picasso图片加载框架的深入学习及解析.md)
 
 ## Framework
 
