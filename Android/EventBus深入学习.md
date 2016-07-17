@@ -3,7 +3,7 @@
 EventBus是一款针对Android优化的发布/订阅事件总线。主要功能是替代Intent,Handler,BroadCast在Fragment，Activity，Service，线程之间传递消息.优点是开销小，代码更优雅。以及将发送者和接收者解耦。
 
 > 项目地址：[https://github.com/greenrobot/EventBus](https://github.com/greenrobot/EventBus)  
-官方介绍：[http://greenrobot.org/eventbus/documentation/](http://greenrobot.org/eventbus/documentation/)
+官方介绍：[http://greenrobot.org/eventbus/documentation/](http://greenrobot.org/eventbus/documentation/)  
 版本：`3.0.0`
 
 ![](https://github.com/greenrobot/EventBus/blob/master/EventBus-Publish-Subscribe.png)
