@@ -55,4 +55,4 @@ while (n++ < 100) {
 
 ## END
 
-如果你在使用过程中，有任何问题，欢迎与我[联系](http://onlylemi.github.io/about/)！
+如果你在使用过程中，有任何问题，欢迎与我[联系](http://onlylemi.github.io/about/)~
