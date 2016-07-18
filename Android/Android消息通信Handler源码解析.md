@@ -144,9 +144,9 @@ public void run() {
 ## 源码解析
 
 > **关于Looper类是如何利用ThreadLocal的**  
-1. ThreadLooper的对象 sThreadLocal 是一个静态变量。
-2. 每个线程在创建looper对象时，sThreadLocal都会将新建的looper对象set()一遍。
-3. 每个线程在调用Looper.myLooper()时，就用调用sThreadLocal的get()方法，获得当前线程的looper对象。
+* sThreadLocal 是一个 ThreadLooper 静态对象
+* 每个线程在创建looper对象时，sThreadLocal都会将新建的looper对象set()一遍。
+* 每个线程在调用Looper.myLooper()时，就用调用sThreadLocal的get()方法，获得当前线程的looper对象。
 
 ### new Handler()
 
