@@ -1,6 +1,10 @@
+package com.onlylemi.zhihudaily.utils;
+
 import android.content.res.Resources;
 import android.graphics.Bitmap;
 import android.graphics.BitmapFactory;
+
+import java.io.FileDescriptor;
 
 /**
  * BitmapUtils
@@ -8,6 +12,10 @@ import android.graphics.BitmapFactory;
  * @author: onlylemi
  */
 public class BitmapUtils {
+
+    private BitmapUtils() {
+
+    }
 
     /**
      * 以特定的尺寸加载图片
@@ -27,6 +35,24 @@ public class BitmapUtils {
         options.inSampleSize = calculateInSampleSize(options, reqWidth, reqHeight);
         options.inJustDecodeBounds = false;
         return BitmapFactory.decodeResource(res, resId, options);
+    }
+
+    /**
+     * 以特定的尺寸加载图片
+     *
+     * @param fd
+     * @param reqWidth
+     * @param reqHeight
+     * @return
+     */
+    public static Bitmap decodeSampledBitmapFromFileDescriptor(FileDescriptor fd,
+                                                               int reqWidth, int reqHeight) {
+        final BitmapFactory.Options options = new BitmapFactory.Options();
+        options.inJustDecodeBounds = true;
+        BitmapFactory.decodeFileDescriptor(fd, null, options);
+        options.inSampleSize = calculateInSampleSize(options, reqWidth, reqHeight);
+        options.inJustDecodeBounds = false;
+        return BitmapFactory.decodeFileDescriptor(fd, null, options);
     }
 
     /**
