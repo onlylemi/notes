@@ -1,5 +1,3 @@
-package com.onlylemi.zhihudaily.utils;
-
 import android.content.Context;
 import android.graphics.Bitmap;
 import android.graphics.BitmapFactory;
@@ -7,7 +5,6 @@ import android.os.AsyncTask;
 import android.support.v4.util.LruCache;
 import android.widget.ImageView;
 
-import com.onlylemi.zhihudaily.App;
 
 import java.io.File;
 import java.io.IOException;
@@ -18,8 +15,6 @@ import java.net.URL;
 import java.security.MessageDigest;
 import java.security.NoSuchAlgorithmException;
 
-import okhttp3.internal.DiskLruCache;
-
 /**
  * AsyncImageLoader
  *
@@ -27,12 +22,13 @@ import okhttp3.internal.DiskLruCache;
  */
 public class AsyncImageLoader {
 
-    private static AsyncImageLoader instance;
+    private static AsyncImageLoader mLoader;
+
     private static Context mContext;
 
     // 内存缓存默认 5M
     static final int MEMORY_CACHE_DEFAULT_SIZE = 5 * 1024 * 1024;
-    // 文件缓存默认 10M
+    // 文件缓存默认 50M
     static final int DISK_CACHE_DEFAULT_SIZE = 50 * 1024 * 1024;
     // 内存缓存
     private LruCache<String, Bitmap> mMemoryCache;
@@ -40,17 +36,17 @@ public class AsyncImageLoader {
     private DiskLruCache mDiskCache;
 
     public AsyncImageLoader(Context context) {
-        mContext = context.getApplicationContext()
+        mContext = context.getApplicationContext();
 
         initMemoryCache();
         initDiskCache(mContext);
     }
 
-    public static AsyncImageLoader getInstance(Context context) {
-        if (null == instance) {
-            instance = new AsyncImageLoader(context);
+    public static AsyncImageLoader with(Context context) {
+        if (null == mLoader) {
+            mLoader = new AsyncImageLoader(context);
         }
-        return instance;
+        return mLoader;
     }
 
     /**
@@ -158,9 +154,20 @@ public class AsyncImageLoader {
      * @return 如需网络下载，则返回true
      */
     public boolean loadImage(final ImageView imageView, String url) {
+        return loadImage(imageView, url, true);
+    }
+
+    /**
+     * 加载图片
+     *
+     * @param imageView
+     * @param url
+     * @param isIdle    在listview中，监听listview的滚动状态，滚动为false，不滚动为true
+     * @return
+     */
+    public boolean loadImage(final ImageView imageView, String url, boolean isIdle) {
         imageView.setTag(url);
 
-        // 先从内存中获取
         Bitmap bitmap = getBitmapFromMemory(url);
         if (null != bitmap) {
             imageView.setImageBitmap(bitmap);
@@ -168,15 +175,17 @@ public class AsyncImageLoader {
         }
 
         // 再从磁盘中获取
-        bitmap = getBitmapFromDisk(url);
-        if (null != bitmap) {
-            putBitmapToMemory(url, bitmap);
-            imageView.setImageBitmap(bitmap);
-            return false;
-        }
+       bitmap = getBitmapFromDisk(url);
+       if (null != bitmap) {
+           putBitmapToMemory(url, bitmap);
+           imageView.setImageBitmap(bitmap);
+           return false;
+       }
 
         // 下载图片
-        new ImageDownloadTask(imageView).execute(url);
+        if (isIdle) {
+            new ImageDownloadTask(imageView).execute(url);
+        }
 
         return true;
     }
@@ -190,6 +199,8 @@ public class AsyncImageLoader {
 
         private String imgUrl;
         private ImageView imageView;
+
+        private int resId;
 
         public ImageDownloadTask(ImageView imageView) {
             this.imageView = imageView;
@@ -222,7 +233,7 @@ public class AsyncImageLoader {
         protected void onPostExecute(Bitmap bitmap) {
             if (null != bitmap && null != imageView) {
                 // 通过 tag 来防止图片错位
-                if (null != imageView.getTag() && imgUrl.equals(imageView.getTag())) {
+                if (null != imageView.getTag() && imageView.getTag().equals(imgUrl)) {
                     imageView.setImageBitmap(bitmap);
                 }
             }
