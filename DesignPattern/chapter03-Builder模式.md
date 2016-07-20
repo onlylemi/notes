@@ -1,6 +1,6 @@
 # chapter3-Builder模式
 
-讲一个复杂对象的构建与它分离，使得同样的构建过程可以创建不同的表示
+将一个复杂对象的构建与它分离，使得同样的构建过程可以创建不同的表示
 
 ## UML类图
 
@@ -13,7 +13,7 @@
 
 ![](https://raw.githubusercontent.com/onlylemi/res/master/dp_build_uml.png)
 
-> 在现实开发中， Director 角色经常会被忽略，世界使用一个 Builder 去组装，这个 Builder 通常为练市调用，通过 setter 返回 this  
+> 在现实开发中， Director 角色经常会被忽略，直接使用一个 Builder 去组装，这个 Builder 通常为链式调用，通过 setter 返回 this  
 `Android 中的 Dialog 就是采用此种方式进行创建的。`
 
 ![](https://raw.githubusercontent.com/onlylemi/res/master/dp_build_uml2.png)

@@ -287,7 +287,7 @@ public class MyAsyncTask extends AsyncTask<String, Integer, Bitmap> {
 
 > 
 
-可以看到，先把 FutureTask 插入到任务队列 tasks 中执行，如果这个时候没有正在活动的 AsyncTask 任务，那么就会执行下一个 AsyncTask 任务，同时当一个 AsyncTask 任务执行完毕之后，AsyncTask 会继续执行其他任务直到所有任务都被执行为止。**从这里就可以看出，默认情况下，AsyncTask是串行执行的**。这样就会调用 FutureTask 的 run() 方法，然后其中又会调用 mWork 的 call() 方法，也就是在构造函数中的实现，call() 方法中就会调用 doInBackground() 并把结果给了 postResult(result)。
+可以看到，先把 FutureTask 插入到任务队列 tasks 中执行，如果这个时候没有正在活动的 AsyncTask 任务，那么就会执行下一个 AsyncTask 任务，同时当一个 AsyncTask 任务执行完毕之后，AsyncTask 会继续执行其他任务直到所有任务都被执行为止。**从这里就可以看出，默认情况下，AsyncTask是串行执行的**。这样就会调用 Runable 的 run() 方法，然后其中又会调用 mWork 的 call() 方法，也就是在构造函数中的实现，call() 方法中就会调用 doInBackground() 并把结果给了 postResult(result)。
 
 > 关于 SerialExecutor，是串行执行的，按加入的顺序依次执行。容量没有限制
 * 里面有一个Runnable队列：mTask

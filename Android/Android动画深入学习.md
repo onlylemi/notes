@@ -10,7 +10,7 @@ View动画库可参考代码家的 [AndroidViewAnimations](https://github.com/da
 
 ## View 动画
 
-> 特点：view 经过变化后，其真实位置任然在原位置，例如加入点击事件后，平移改变后的 view 不具有点击时间，点击任然在原位置（假象）
+> 特点：view 经过变化后，其真实位置仍然在原位置，例如加入点击事件后，平移改变后的 view 不具有点击时间，点击仍然在原位置（假象），该动画是在 `draw` 期间进行矩阵变换，并不会改变控件的实际参数
 
 * translate —— TranslateAnimation
 * scale —— ScaleAnimation
@@ -221,7 +221,7 @@ LayoutAnimation 为 ViewGroup 指定一个动画后，它的子元素出场时�
 
 </layoutAnimation>
 ```
-
+> 
 * animation —— 入场动画
 * animationOrder —— 动画的顺序（normal：依次显示，reverse：逆序显示，random：随机显示）
 * delay —— 开始动画的延迟时间
@@ -496,11 +496,11 @@ ObjectAnimator.ofInt(ViewWrapper.decorator(view), "width", 800).start();
 ## 插值器和估值器
 
 > 其实这两个东西没啥区别，都是做一些数学运算计算值  
-* **可参考**
-    * [@hujiaweibujidao](https://github.com/hujiaweibujidao) 的 [当数学遇上动画](http://hujiaweibujidao.github.io/blog/2016/05/26/when-math-meets-android-animation/) 三部曲中对插值器和估值器的介绍
-    * [@代码家](https://github.com/daimajia) 的 [AnimationEasingFunctions](https://github.com/daimajia/AnimationEasingFunctions)
-    * [easings.net](http://easings.net/)
-    * [EaseInterpolator](https://github.com/cimi-chen/EaseInterpolator)
+>> **可参考**  
+* [@hujiaweibujidao](https://github.com/hujiaweibujidao) 的 [当数学遇上动画](http://hujiaweibujidao.github.io/blog/2016/05/26/when-math-meets-android-animation/) 三部曲中对插值器和估值器的介绍
+* [@代码家](https://github.com/daimajia) 的 [AnimationEasingFunctions](https://github.com/daimajia/AnimationEasingFunctions)
+* [easings.net](http://easings.net/)
+* [EaseInterpolator](https://github.com/cimi-chen/EaseInterpolator)
 
 ### 插值器
 
