@@ -14,7 +14,7 @@
 
 ## SimpleArrayMap
 
-使用了两个数组，一个是 `Hash` 数组，另一个是大小*2的 `Object` 数组。`Object` 数组中使用 `key+value` 间隔存取的方式；另外 `Hash` 数组，则是对应的 `Key` 的 `Hash` 值数组，并且这是一个有序的 `int` 数组，这样在进行 `Key` 的查找时，使用**二分查找**则是最有效率的方式了。
+使用了两个数组，一个是 `Hash` 数组，另一个是大小2的 `Object` 数组。`Object` 数组中使用 `key+value` 间隔存取的方式；另外 `Hash` 数组，则是对应的 `Key` 的 `Hash` 值数组，并且这是一个有序的 `int` 数组，这样在进行 `Key` 的查找时，使用**二分查找**则是最有效率的方式了。
 
 ![](https://raw.githubusercontent.com/onlylemi/res/master/android_SimpleArrayMap.png)
 
