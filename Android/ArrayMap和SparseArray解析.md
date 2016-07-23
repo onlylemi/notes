@@ -16,7 +16,7 @@
 
 使用了两个数组，一个是 `Hash` 数组，另一个是大小*2的 `Object` 数组。`Object` 数组中使用 `key+value` 间隔存取的方式；另外 `Hash` 数组，则是对应的 `Key` 的 `Hash` 值数组，并且这是一个有序的 `int` 数组，这样在进行 `Key` 的查找时，使用**二分查找**则是最有效率的方式了。
 
-![](android_SimpleArrayMap.png)
+![](https://raw.githubusercontent.com/onlylemi/res/master/android_SimpleArrayMap.png)
 
 ### 定义
 
@@ -249,13 +249,11 @@ static int mTwiceBaseCacheSize;
 
 继承了 `SimpleArrayMap`，又实现了Map的接口；主要的操作，则是通过引入 `MapCollections` 类，使用 `Map` 中的 `Entry` 结构，这样在 `ArrayMap` 中就可以通过 `Iterator` 来进行数据的的迭代操作。
 
-
-
-
-
 ## SparseArray
 
 采用了两个数组来进行 `key`、`value` 值得保存，只能存储 `key` 为 `int` 类型的数据，免了对 key 的自动装箱（int转为Integer类型）
+
+![](https://raw.githubusercontent.com/onlylemi/res/master/android_SparseArray.png)
 
 ### 定义
 
