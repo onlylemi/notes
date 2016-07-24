@@ -2,7 +2,7 @@
 
 > 可是模拟对比：[http://www.cs.usfca.edu/~galles/visualization/ComparisonSort.html](http://www.cs.usfca.edu/~galles/visualization/ComparisonSort.html)
 
-![](http://hi.csdn.net/attachment/201105/24/0_1306225542srVx.gif)
+![](http://blog.chinaunix.net/attachment/201201/18/21457204_1326898064RUxx.jpg)
 
 ## 插入排序
 

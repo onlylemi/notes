@@ -85,6 +85,7 @@
 	* [AppUtils.java](https://github.com/onlylemi/notes/blob/master/snippet/utils/AppUtils.java) —— Android 项目中应用工具类
 	* [HtmlUtils.java](https://github.com/onlylemi/notes/blob/master/snippet/utils/HtmlUtils.java) —— Android 项目中 Html 处理工具类
 	* [TimeUtils.java](https://github.com/onlylemi/notes/blob/master/snippet/utils/TimeUtils.java) —— Android 项目中时间工具类
+	* [SortUtils.java](https://github.com/onlylemi/notes/blob/master/snippet/utils/SortUtils.java) —— 排序算法类
 * contract
 	* [BasePresenter.java](https://github.com/onlylemi/notes/blob/master/snippet/contract/BasePresenter.java) —— Android 项目 MVP 模式的 BasePresenter 接口
 	* [BaseView.java](https://github.com/onlylemi/notes/blob/master/snippet/contract/BaseView.java) —— Android 项目 MVP 模式的 BaseView 接口
