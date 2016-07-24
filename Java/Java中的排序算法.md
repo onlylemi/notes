@@ -1,4 +1,4 @@
-# Java 中的8大排序算法
+# Java 中的排序算法
 
 > 可是模拟对比：[http://www.cs.usfca.edu/~galles/visualization/ComparisonSort.html](http://www.cs.usfca.edu/~galles/visualization/ComparisonSort.html)
 
