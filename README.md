@@ -23,8 +23,11 @@
 * [Java 源码解析——List](https://github.com/onlylemi/notes/blob/master/Java/List.md)
 * [Java 源码解析——Map](https://github.com/onlylemi/notes/blob/master/Java/Map.md)
 * [Java 源码解析——Set](https://github.com/onlylemi/notes/blob/master/Java/Set.md)
-* [线程与线程池](https://github.com/onlylemi/notes/blob/master/Java/线程与线程池.md)
 * [Java 中的排序算法](https://github.com/onlylemi/notes/blob/master/Java/Java中的排序算法.md)
+* [线程](https://github.com/onlylemi/notes/blob/master/Java/线程.md)
+* [线程](https://github.com/onlylemi/notes/blob/master/Java/线程中断处理.md)
+* [sleep 和 wait](https://github.com/onlylemi/notes/blob/master/Java/sleep和wait.md)
+* [线程池](https://github.com/onlylemi/notes/blob/master/Java/线程池.md)
 
 ## Android
 
