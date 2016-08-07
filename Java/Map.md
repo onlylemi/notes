@@ -14,7 +14,7 @@
 * Hashtable：[http://www.cnblogs.com/skywang12345/p/3310887.html](http://www.cnblogs.com/skywang12345/p/3310887.html)
 * LinkedHashMap：[http://zhangshixi.iteye.com/blog/673789](http://zhangshixi.iteye.com/blog/673789)
 * 红黑树：[http://blog.csdn.net/coslay/article/details/47083897](http://blog.csdn.net/coslay/article/details/47083897)
-* TreeMap：[http://blog.csdn.net/chenssy/article/details/26668941](http://blog.csdn.net/chenssy/article/details/26668941)
+* TreeMap：[http://cmsblogs.com/?p=1013](http://cmsblogs.com/?p=1013)
 
 ## HashMap
 
@@ -76,7 +76,7 @@ LinkedHashMap 采用的 hash 算法和 HashMap 相同，但是它重新定义了
 * 继承自 AbstractMap 类
 * 数组 + 链表
 * put 时，根据 key 的 hashCode 重新计算 hash 值 `hash = hash(key.hashCode())`，找到元素在数组中的位置，然储存在该位置，如果已经存在，则在该位置以链表的形式进行存放，新加入的放在链头，最先加入的在链尾
-* 初始容量为 **16**（而且一定是 **2** 的指数），负载因子为 **0.75**
+* 初始容量为 **16**（而且一定是 **2** 的指数），加载因子为 **0.75**（存储数 > 容量 x 0.75，就扩容）
 * key 不能重复，value 可以重复
 * 允许 key=null，value=null，key=null 时储存在数组的头部，因此不能通过 `get()` 方法来判断 HashMap 中是否存在某个 key，而应该用 `containsKey()` 方法来判断
 * 不支持线程的同步，如果需要同步，可以用
