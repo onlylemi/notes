@@ -162,6 +162,28 @@ void linkLast(E e) {
 }
 ```
 
+```java
+// LinkedList get() 方法
+public E get(int index) {
+    checkElementIndex(index);
+    return node(index).item;
+}
+
+Node<E> node(int index) {
+    if (index < (size >> 1)) {
+        Node<E> x = first;
+        for (int i = 0; i < index; i++)
+            x = x.next;
+        return x;
+    } else {
+        Node<E> x = last;
+        for (int i = size - 1; i > index; i--)
+            x = x.prev;
+        return x;
+    }
+}
+```
+
 ### 迭代器
 
 * `iterator()` —— 普通迭代器
@@ -268,8 +290,3 @@ public synchronized int search(Object o) {
 * ArrayList 和 Vector 底层是采用数组方式存储数据，LinkedList 采用链表
 * Vector 线程安全，ArrayList、LinkedList 线程不安全
 * ArrayList 默认容量为 **0**，第一次 add 时，变为 10，之后每次增加原来的 **0.5** 倍；Vector 默认容量为 **10**，之后每次增加原来的 **1** 倍
-
-
-## 推荐阅读
-
-[从源码角度了解 String](https://onlylemi.github.io/blog/android-analysis-string/)
