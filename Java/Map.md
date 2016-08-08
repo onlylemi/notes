@@ -93,6 +93,10 @@ Collections 的 synchronizedMap 方法使 HashMap 具有同步的能力，或者
 * put 时，直接使用 `hash = key.hashCode()`;
 * 遍历时采用 **Enumeration**
 
+### ConcurrentHashMap 
+
+
+
 ### LinkedHashMap
 
 * 继承自 HashMap
