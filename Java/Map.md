@@ -93,9 +93,11 @@ Collections 的 synchronizedMap 方法使 HashMap 具有同步的能力，或者
 * put 时，直接使用 `hash = key.hashCode()`;
 * 遍历时采用 **Enumeration**
 
+![](https://raw.githubusercontent.com/onlylemi/res/master/java-hashtable-concurrenthashmap.jpg)
+
 ### ConcurrentHashMap 
 
-
+* ConcurrentHashMap 由多个 segment 组成，每一个 segment 都包含了一个 HashEntry 数组的 hashtable， 每一个 segment 包含了对自己的 hashtable 的操作，比如 get，put，replace 等操作，这些操作发生的时候，对自己的 hashtable 进行锁定。由于每一个 segment 写操作只锁定自己的 hashtable，性能无疑好于只有一个 hashtable 锁定的情况。
 
 ### LinkedHashMap
 
