@@ -5,9 +5,9 @@ import java.util.Date;
 /**
  * TimeUtils
  *
- * @author: onlylemi
+ * @author qijianbin
  */
-public class TimeUtils {
+public final class TimeUtils {
 
     private TimeUtils() {
     }
@@ -17,18 +17,27 @@ public class TimeUtils {
      *
      * @return
      */
-    public static int currentTimestamp() {
-        return (int) (System.currentTimeMillis() / 1000);
+    public static long currentTimestamp() {
+        return System.currentTimeMillis() / 1000;
+    }
+
+    /**
+     * 获取当前的日期（默认格式：yyyy-MM-dd HH:mm:ss）
+     *
+     * @return
+     */
+    public static String currentDate(){
+        return timestamp2Date(currentTimestamp(), null);
     }
 
     /**
      * 时间戳转日期
      *
      * @param timestamp
-     * @param format
+     * @param format 若为 null，默认格式为 yyyy-MM-dd HH:mm:ss
      * @return
      */
-    public static String timestampToDate(long timestamp, String format) {
+    public static String timestamp2Date(long timestamp, String format) {
         if (null == format || format.isEmpty()) {
             format = "yyyy-MM-dd HH:mm:ss";
         }
@@ -40,10 +49,10 @@ public class TimeUtils {
      * 日期转时间戳
      *
      * @param date
-     * @param format
+     * @param format 若为 null，默认格式为 yyyy-MM-dd HH:mm:ss
      * @return
      */
-    public static long dateToTimestamp(String date, String format) {
+    public static long date2Timestamp(String date, String format) {
         if (null == format || format.isEmpty()) {
             format = "yyyy-MM-dd HH:mm:ss";
         }
