@@ -51,7 +51,9 @@
 * [MVC](https://github.com/onlylemi/notes/blob/master/Framework/MVC.md)
 * [MVP](https://github.com/onlylemi/notes/blob/master/Framework/MVP.md)
 
-## DesignPattern
+## DesignPattern 
+
+> 推荐阅读：[http://design-patterns.readthedocs.io/zh_CN/latest/read_uml.html](http://design-patterns.readthedocs.io/zh_CN/latest/read_uml.html)
 
 * [chapter01 - 面向对象六大原则](https://github.com/onlylemi/notes/blob/master/DesignPattern/chapter01-面向对象六大原则.md)
 * [chapter02 - 单例模式](https://github.com/onlylemi/notes/blob/master/DesignPattern/chapter02-单例模式.md)
