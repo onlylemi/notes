@@ -1,42 +1,54 @@
-# git 操作
+# Git 操作
 
-## git 命令
+> 参考阅读：
+*  [git - 简明指南](http://rogerdudler.github.io/git-guide/index.zh.html)
+* [Git 官方教程](https://git-scm.com/book/zh/v2)
+* [25个Git用法技巧](http://www.techug.com/25-git-tips)
+* [图解Git](https://marklodato.github.io/visual-git-guide/index-zh-cn.html)
 
-* 创建本地仓库
+## 图解
+
+![Git演示图](https://raw.githubusercontent.com/onlylemi/res/master/git-img.png)
+
+* `workspace` —— 本地工作目录
+* `index` —— 暂存区
+* `local` —— 本地仓库，HEAD，指向最后一次提交的结果
+* `remote` —— 远程仓库
+
+## 命令
+
+### 配置
+
+* `git config --global user.name "name"` —— 配置全局 Git 用户名
+* `git config --global user.email "you@example.com"` —— 配置全局 Git 邮箱
+* `git config user.name "name"` —— 配置当前仓库 Git 用户名
+* `git config user.email "you@example.com"` —— 配置当前仓库 Git 邮箱
+* `git config --global user.name` —— 查看全局 Git 用户名
+* `git config --global user.email` —— 查看全局 Git 邮箱
+* `git config user.name` —— 查看当前仓库 Git 用户名
+* `git config user.email` —— 查看当前仓库 Git 邮箱
+
+### 初始化
+
+* `git init` —— 仓库初始化
+* `git clone [url]` —— 获取远程仓库到本地
+* `git remote add [remote-name] [remote-url]` —— 添加一个新的远程仓库
+* `git remote` —— 列出所有的 remote
+* `git remote -v` —— 列出所有的 remote 的地址
+* `git remote rm [remote-name]` —— 删除一个 remote
+* `git reomte rename [old-name] [new-name]` —— 重命名 remote
+
+### 基本操作
+
+### 撤销操作
+
+### 分支相关
+
+### 冲突处理
+
+### 其他
 
 
-
-```
-git init
-```
-
-* 获取远程仓库
-
-```
-git clone [url]
-例：git clone https://github.com/you/yourpro.git
-```
-
-* 创建远程仓库
-
-```
-// 添加一个新的 remote 远程仓库
-git remote add [remote-name] [url]
-例：git remote add origin https://github.com/you/yourpro.git
-origin：相当于该远程仓库的别名
-
-// 列出所有 remote 的别名
-git remote
-
-// 列出所有 remote 的 url
-git remote -v
-
-// 删除一个 renote
-git remote rm [name]
-
-// 重命名 remote
-git remote rename [old-name] [new-name]
-```
 
 * 从本地仓库中删除
 
