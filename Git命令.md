@@ -40,121 +40,51 @@
 
 ### 基本操作
 
-### 撤销操作
+* `git add [file]` —— 添加修改文件，workspace -> index
+* `git add .` —— t添加所有修改文件，workspace -> index
+* `git commit -m "提交信息"` —— 文件提交，index -> local
+* `git commit -m --amend` —— 与上次 commit 合并，index -> local 
+* `git push [remote-name] [loca-branch]:[remote-branch]` —— 把本地的某个分支推送到远程仓库的某个分支，local -> remote
+* `git fetch ` —— 抓取远程仓库至最新改动
+* `git merge [branch]` —— 合并其他分支到当前分支
+* `git pull` —— 更新本地仓库到最新改动，remote -> workspace
+* `git status` —— 查看修改状态
+* `git log` —— 查看提交记录
+* `git show` —— 展示提交的内容
+* `git stash` —— 暂存修改
+* `git stash pop` —— 弹出之前暂存的修改
 
 ### 分支相关
 
+* `git checkout -b [branch-name]` —— 创建分支，并切换到该分支
+* `git checkout [branch-name]` —— 切换到该分支
+* `git branch [branch-name]` —— 创建分支
+* `git branch -d [branch-name]` —— 删除分支 
+* `git branch` —— 查看所有分支
+* `git branch -a` —— 查看远程所有分支
+
+### 撤销操作
+
+* `git reset --hard HEAD~` —— 撤销提交，local -> workspace，修改的文件也会丢失
+* `git reset --soft HEAD~` —— 撤销提交，local -> index
+* `git reset --mixed HEAD~` —— （默认）撤销提交，local -> workspace，修改的不会会丢失
+* `git checkout [filename]` —— index -> workspace，修改丢失
+* `git rm [filename]` —— 从版本库中移除，删除源文件
+* `git rm [filename] --cached` —— 从版本库中移除，不删除源文件
+* `git rm -r [folder-name]` —— 从版本库中移除，删除源文件
+
 ### 冲突处理
 
-### 其他
-
-
-
-* 从本地仓库中删除
-
-```
-git rm file.txt         // 从版本库中移除，删除文件
-git rm file.txt --cached // 从版本库中移除，不删除原始文件
-git rm -r xxx           // 从版本库中删除指定文件夹
-```
-
-* 从本地仓库中添加新的文件
-
-```
-git add .               // 添加所有文件
-git add file.txt        // 添加指定文件
-```
-
-* 提交，把缓存内容提交到 HEAD 里
-
-```
-git commit -m "注释"
-```
-
-* 撤销
-
-```
-// 撤销最近的一个提交.
-git revert HEAD
-
-// 取消 commit + add
-git reset --mixed
-
-// 取消 commit
-git reset --soft
-
-// 取消 commit + add + local working
-git reset --hard
-```
-
-* 把本地提交 push 到远程服务器
-
-```
-git push [remote-name] [loca-branch]:[remote-branch]
-例：git push origin master:master
-```
-
-* 查看状态
-
-```
-git status
-```
-
-* 从远程库中下载新的改动
-
-```
-git fetch [remote-name]/[branch]
-```
-
-* 合并下载的改动到分支
-
-```
-git merge [remote-name]/[branch]
-```
-
-* 从远程库中下载新的改动
-
-```
-pull = fetch + merge
-
-git pull [remote-name] [branch]
-例：git pull origin master
-```
-
-* 分支
-
-```
-// 列出分支
-git branch
-
-// 创建一个新的分支
-git branch (branch-name)
-
-// 删除一个分支
-git branch -d (branch-nam)
-
-// 删除 remote 的分支
-git push (remote-name) :(remote-branch)
-```
-
-* 切换分支
-
-```
-// 切换到一个分支
-git checkout [branch-name]
-
-// 创建并切换到该分支
-git checkout -b [branch-name]
-```
+* `git diff` —— 对比 workspace 和 index
+* `git diff HEAD` —— 独臂 workspace 与最后一次提交
+* `git diff [source-branch] [target-branch]` —— 对比两个分支差异
+* `git add [filename]` —— 冲突修改完，需 add 标记合并成功
 
 ## gitignore
 
 在本地仓库根目录创建 .gitignore 文件。Win7 下不能直接创建，可以创建 ".gitignore." 文件，后面的标点自动被忽略；
 
-```
-/.idea          // 过滤指定文件夹
-/fd/*           // 忽略根目录下的 /fd/ 目录的全部内容；
-*.iml           // 过滤指定的所有文件
-!.gitignore     // 不忽略该文件
-```
-
+* `/.idea` —— 过滤指定文件夹
+* `/fd/*` —— 忽略根目录下的 /fd/ 目录的全部内容；
+* `*.iml` —— 过滤指定的所有文件
+* `!.gitignore` —— 不忽略该文件
