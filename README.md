@@ -53,7 +53,7 @@
 
 ## DesignPattern 
 
-> 推荐阅读：[http://design-patterns.readthedocs.io/zh_CN/latest/read_uml.html](http://design-patterns.readthedocs.io/zh_CN/latest/read_uml.html)
+> 推荐阅读：[me115](https://github.com/me115) 整理的 [图说设计模式](http://design-patterns.readthedocs.io/zh_CN/latest/read_uml.html)
 
 * [chapter01 - 面向对象六大原则](https://github.com/onlylemi/notes/blob/master/DesignPattern/chapter01-面向对象六大原则.md)
 * [chapter02 - 单例模式](https://github.com/onlylemi/notes/blob/master/DesignPattern/chapter02-单例模式.md)
@@ -82,6 +82,8 @@
 
 ## Snippet
 
+> 推荐阅读：[Blankj](https://github.com/Blankj) 整理的 [AndroidUtilCode](https://github.com/Blankj/AndroidUtilCode)
+
 * [App.java](https://github.com/onlylemi/notes/blob/master/snippet/App.java) —— Android 项目开发中的 MyApplication
 * [AsyncImageLoader.java](https://github.com/onlylemi/notes/blob/master/snippet/AsyncImageLoader.java) —— Android 项目图片三级缓存、异步加载类
 * [BitmapLoader.java](https://github.com/onlylemi/notes/blob/master/snippet/BitmapLoader.java) —— Android 项目中加载图片通过 HashMap 缓存 Bitmap 软引用对象
@@ -92,6 +94,7 @@
 	* [HtmlUtils.java](https://github.com/onlylemi/notes/blob/master/snippet/utils/HtmlUtils.java) —— Android 项目中 Html 处理工具类
 	* [TimeUtils.java](https://github.com/onlylemi/notes/blob/master/snippet/utils/TimeUtils.java) —— Android 项目中时间工具类
 	* [SortUtils.java](https://github.com/onlylemi/notes/blob/master/snippet/utils/SortUtils.java) —— 排序算法类
+	* [ProcessUtils](https://github.com/onlylemi/notes/blob/master/snippet/utils/SortUtils.java) —— 前台进程获取类
 * contract
 	* [BasePresenter.java](https://github.com/onlylemi/notes/blob/master/snippet/contract/BasePresenter.java) —— Android 项目 MVP 模式的 BasePresenter 接口
 	* [BaseView.java](https://github.com/onlylemi/notes/blob/master/snippet/contract/BaseView.java) —— Android 项目 MVP 模式的 BaseView 接口
