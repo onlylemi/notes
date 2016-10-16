@@ -16,6 +16,12 @@
 * [i :heart: nerd](https://github.com/onlylemi/inerd) —— 创意编程干货资源补给站
 * [Gank.io](https://github.com/onlylemi/gank.io) ——  Gank.io 资源 GitHub 备份
 
+## 命令
+
+* [Git 命令](https://github.com/onlylemi/notes/blob/master/Git命令.md)
+* [Linux 命令](https://github.com/onlylemi/notes/blob/master/Linux命令.md)
+* [Android 命令](https://github.com/onlylemi/notes/blob/master/Android命令.md)
+
 ## Java
 
 * [Java 基础知识](https://github.com/onlylemi/notes/blob/master/Java/Java基础知识点.md)
