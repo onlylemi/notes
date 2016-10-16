@@ -47,7 +47,7 @@
 * `git push [remote-name] [loca-branch]:[remote-branch]` —— 把本地的某个分支推送到远程仓库的某个分支，local -> remote
 * `git fetch ` —— 抓取远程仓库至最新改动
 * `git merge [branch]` —— 合并其他分支到当前分支
-* `git pull` —— 更新本地仓库到最新改动，remote -> workspace
+* `git pull [reomte] [branch]` —— 更新本地仓库到最新改动，remote -> workspace
 * `git status` —— 查看修改状态
 * `git log` —— 查看提交记录
 * `git show` —— 展示提交的内容
