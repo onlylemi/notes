@@ -49,8 +49,8 @@ public class ProcessUtils {
 
     /**
      * 判断某个应用是否处于前台（系统应用调用）
-     * <p>API >= 22，需要添加 {@code <uses-permission android:name="android.permission.GET_TASKS"/>} 权限</p>
-     * <p>API <= 21，需要添加　{@code <uses-permission android:name="android.permission.PACKAGE_USAGE_STATS"/>} 权限</p>
+     * <p>API <= 21，需要添加 {@code <uses-permission android:name="android.permission.GET_TASKS"/>} 权限</p>
+     * <p>API >= 22，需要添加　{@code <uses-permission android:name="android.permission.PACKAGE_USAGE_STATS"/>} 权限</p>
      *
      * @param context
      * @param packageName
@@ -62,8 +62,8 @@ public class ProcessUtils {
 
     /**
      * 获取前台应用包名（系统应用调用）
-     * <p>API >= 22，需要添加 {@code <uses-permission android:name="android.permission.GET_TASKS"/>} 权限</p>
-     * <p>API <= 21，需要添加　{@code <uses-permission android:name="android.permission.PACKAGE_USAGE_STATS"/>} 权限</p>
+     * <p>API <= 21，需要添加 {@code <uses-permission android:name="android.permission.GET_TASKS"/>} 权限</p>
+     * <p>API >= 22，需要添加　{@code <uses-permission android:name="android.permission.PACKAGE_USAGE_STATS"/>} 权限</p>
      *
      * @param context
      * @return

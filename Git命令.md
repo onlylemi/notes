@@ -43,7 +43,7 @@
 * `git add [file]` —— 添加修改文件，workspace -> index
 * `git add .` —— t添加所有修改文件，workspace -> index
 * `git commit -m "提交信息"` —— 文件提交，index -> local
-* `git commit -m --amend` —— 与上次 commit 合并，index -> local 
+* `git commit --amend` —— 与上次 commit 合并，index -> local 
 * `git push [remote-name] [loca-branch]:[remote-branch]` —— 把本地的某个分支推送到远程仓库的某个分支，local -> remote
 * `git fetch ` —— 抓取远程仓库至最新改动
 * `git merge [branch]` —— 合并其他分支到当前分支
