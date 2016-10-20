@@ -60,6 +60,7 @@
 * `git checkout [branch-name]` —— 切换到该分支
 * `git branch [branch-name]` —— 创建分支
 * `git branch -d [branch-name]` —— 删除分支 
+* `git branch -m [old-name] [new-name]` —— 重命名分支
 * `git branch` —— 查看所有分支
 * `git branch -a` —— 查看远程所有分支
 
