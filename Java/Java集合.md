@@ -65,7 +65,7 @@ while(it.hasPrevious()){
 
 ### HashMap 与 Hashtable 区别
 
-* HashTable比较老，是基于Dictionary 类实现的，HashTable 则是基于 Map接口实现的
+* HashTable比较老，是基于Dictionary 类实现的，HashMap 则是基于 Map接口实现的
 * HashTable 是线程安全的， HashMap 则是线程不安全的
 * HashMap可以让你将空值作为一个表的条目的key或value
 
