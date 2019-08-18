@@ -10,7 +10,7 @@
 
 * [MapView](https://github.com/onlylemi/MapView) —— Android平台下的室内地图图层控件 [`介绍`](http://onlylemi.github.io/projects/MapView/)
 * [AndroidCapture For Processing](https://github.com/onlylemi/processing-android-capture) —— Processing 与 Android交互库 [`介绍`](http://onlylemi.github.io/projects/processing-android-capture/)
-* [download-any-for-github](https://github.com/onlylemi/download-any-for-github) —— Github Chrome插件，可下载任意指定文件或文件夹 [`介绍`](http://onlylemi.github.io/projects/download-any-for-github/)
+* [github-downloader](https://github.com/onlylemi/github-downloader) —— Github Chrome插件，可下载任意指定文件或文件夹 [`介绍`](http://onlylemi.github.io/projects/download-any-for-github/)
 * [GeneticTSP](https://github.com/onlylemi/GeneticTSP) —— 遗传算法解决 TSP 旅行商问题
 * [MusicVisual](https://github.com/onlylemi/MusicVisual) —— Processing 音乐可视化例子代码
 * [i :heart: nerd](https://github.com/onlylemi/inerd) —— 创意编程干货资源补给站
