@@ -117,12 +117,16 @@ public class Singleton {
 > 
 * 线程并非绝对安全；
 * 不能防止反序列化、反射产生新的实例。  
+1.
 
+2.
+
+3.
 > 线程不安全原因：  
 >> Java的乱序执行、初始化对象需要时间。 对于语句③，JVM在执行时大致做了下述三件事：
-* a. 在内存中分配一块内存 
-* b. 调用构造方法 
-* c. 将内存的地址指向instance变量。（执行这一步后，instance != null）    
+* a. memory = allocate()；在内存中分配一块内存
+* b. createInstance(memory)；调用构造方法
+* c. resource = memory；将内存的地址指向instance变量。（执行这一步后，instance != null）
 
 >> 如果按照abc的顺序执行也不会有什么问题。但由于Java乱序执行的机制，有可能在真实情况下执行顺序为acb。
 假设t1、t2是两个线程。t1执行到①时，发现为null，于是执行到语句③，先执行a,再执行c,在还没有执行b时，时间片给了t2。这时，由于instance已经分配了地址空间，instance不为null了。所以t2在执行到语句①后直接return instance，获得了这个还没有被初始化的对象，然后在使用时就报错了。
